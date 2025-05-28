@@ -137,6 +137,112 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
+        .apple-btn {
+            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            border: none;
+            box-shadow: 
+                0 8px 32px rgba(0, 122, 255, 0.4),
+                0 4px 16px rgba(0, 122, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .apple-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: left 0.5s ease;
+        }
+        
+        .apple-btn:hover {
+            background: linear-gradient(135deg, #0056D6 0%, #003D99 100%);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 12px 48px rgba(0, 122, 255, 0.5),
+                0 6px 24px rgba(0, 122, 255, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .apple-btn:hover::before {
+            left: 100%;
+        }
+        
+        .apple-btn:active {
+            transform: translateY(-1px) scale(1.01);
+            transition: all 0.1s ease;
+        }
+        
+        .apple-btn-secondary {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            color: #1d1d1f;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.15),
+                0 4px 16px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .apple-btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: left 0.5s ease;
+        }
+        
+        .apple-btn-secondary:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.9) 100%);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 12px 48px rgba(0, 0, 0, 0.2),
+                0 6px 24px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+            border-color: rgba(255, 255, 255, 1);
+        }
+        
+        .apple-btn-secondary:hover::before {
+            left: 100%;
+        }
+        
+        .apple-btn-secondary:active {
+            transform: translateY(-1px) scale(1.01);
+            transition: all 0.1s ease;
+        }
+        
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
@@ -515,6 +621,10 @@
 <body class="bg-gray-50">
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen relative overflow-hidden">
+        <!-- Soft overlays for Solarium design -->
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-400/10 via-transparent to-blue-400/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-tl from-yellow-300/5 via-transparent to-purple-400/5"></div>
+        
         <!-- Code Rain Background -->
         <div class="code-rain">
             <div style="position: absolute; left: 5%; animation-delay: 0s;">
@@ -615,26 +725,34 @@
         <div class="ai-particle" style="top: 70%; left: 50%; animation-delay: 1.2s;"></div>
         
         <div class="absolute inset-0">
-            <div class="sparkle top-20 left-20 animation-delay-0"></div>
-            <div class="sparkle top-40 right-32 animation-delay-1000"></div>
-            <div class="sparkle top-60 left-1/3 animation-delay-2000"></div>
-            <div class="sparkle bottom-40 right-20 animation-delay-3000"></div>
+            <div class="sparkle top-20 left-20 animation-delay-0" style="background: linear-gradient(45deg, #fbbf24, #f59e0b);"></div>
+            <div class="sparkle top-40 right-32 animation-delay-1000" style="background: linear-gradient(45deg, #3b82f6, #1d4ed8);"></div>
+            <div class="sparkle top-60 left-1/3 animation-delay-2000" style="background: linear-gradient(45deg, #f59e0b, #d97706);"></div>
+            <div class="sparkle bottom-40 right-20 animation-delay-3000" style="background: linear-gradient(45deg, #8b5cf6, #7c3aed);"></div>
+            <div class="sparkle top-32 left-1/2 animation-delay-1500" style="background: linear-gradient(45deg, #06b6d4, #0891b2);"></div>
+            <div class="sparkle bottom-32 left-20 animation-delay-2500" style="background: linear-gradient(45deg, #ec4899, #db2777);"></div>
         </div>
         
-        <nav class="glass fixed w-full top-0 z-50 py-4">
+        <nav class="glass-strong solarium-accent fixed w-full top-0 z-50 py-4 border-b border-white/20 natural-shadow">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                            <img src="https://avatars.githubusercontent.com/u/163618219?s=200&v=4" alt="Devin AI" class="w-6 h-6 rounded-full">
+                        <div class="w-12 h-12 glass solarium-warm rounded-full flex items-center justify-center border-2 border-white/30 warm-glow">
+                            <img src="https://avatars.githubusercontent.com/u/163618219?s=200&v=4" alt="Devin AI" class="w-8 h-8 rounded-full">
                         </div>
-                        <span class="text-white font-bold text-xl">Devin Meetup Tokyo</span>
+                        <span class="text-gray-900 font-bold text-xl">Devin Meetup Tokyo</span>
                     </div>
-                    <div class="hidden md:flex space-x-8 text-white">
-                        <a href="#about" class="hover:text-blue-200 transition">About</a>
-                        <a href="#schedule" class="hover:text-blue-200 transition">Schedule</a>
-                        <a href="#venue" class="hover:text-blue-200 transition">Venue</a>
-                        <a href="#register" class="hover:text-blue-200 transition">Register</a>
+                    <div class="hidden md:flex space-x-6 text-gray-700">
+                        <a href="#about" class="glass solarium-warm px-4 py-2 rounded-full hover:scale-105 transition-all duration-300 border border-white/30">About</a>
+                        <a href="#schedule" class="glass solarium-cool px-4 py-2 rounded-full hover:scale-105 transition-all duration-300 border border-white/30">Schedule</a>
+                        <a href="#venue" class="glass solarium-accent px-4 py-2 rounded-full hover:scale-105 transition-all duration-300 border border-white/30">Venue</a>
+                        <a href="#register" class="glass solarium-warm px-4 py-2 rounded-full hover:scale-105 transition-all duration-300 border border-white/30">Register</a>
+                    </div>
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button class="glass solarium-warm p-3 rounded-full border border-white/30">
+                            <i class="fas fa-bars text-gray-700"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -644,7 +762,7 @@
             <div class="max-w-7xl mx-auto">
                 <div class="text-center">
                     <div class="animate-float mb-8">
-                        <div class="w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center shadow-2xl">
+                        <div class="w-32 h-32 mx-auto glass-strong solarium-accent rounded-full flex items-center justify-center border-4 border-white/30 natural-shadow-strong warm-glow">
                             <img src="https://avatars.githubusercontent.com/u/163618219?s=200&v=4" alt="Devin AI" class="w-20 h-20 rounded-full">
                         </div>
                     </div>
@@ -656,33 +774,38 @@
                         </span>
                     </h1>
                     
-                    <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                        世界初のAIソフトウェアエンジニア「Devin」について学び、未来のエンジニアリングを体験する特別なイベント
-                    </p>
+                    <div class="glass-strong solarium-accent max-w-4xl mx-auto p-8 rounded-3xl mb-12 border-2 border-white/30 natural-shadow-strong warm-glow">
+                        <p class="text-xl md:text-2xl text-gray-900 leading-relaxed font-medium">
+                            世界初のAIソフトウェアエンジニア「Devin」について学び、未来のエンジニアリングを体験する特別なイベント
+                        </p>
+                    </div>
                     
                     <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12">
-                        <div class="flex items-center text-white">
-                            <i class="fas fa-calendar-alt text-yellow-400 mr-3 text-xl"></i>
+                        <div class="glass solarium-warm flex items-center text-gray-900 px-6 py-4 rounded-full border border-white/30 natural-shadow">
+                            <i class="fas fa-calendar-alt text-orange-600 mr-3 text-xl"></i>
                             <span class="text-lg font-semibold">2025年7月26日（土）</span>
                         </div>
-                        <div class="flex items-center text-white">
-                            <i class="fas fa-map-marker-alt text-yellow-400 mr-3 text-xl"></i>
+                        <div class="glass solarium-cool flex items-center text-gray-900 px-6 py-4 rounded-full border border-white/30 natural-shadow">
+                            <i class="fas fa-map-marker-alt text-blue-600 mr-3 text-xl"></i>
                             <span class="text-lg font-semibold">メルカリ本社</span>
                         </div>
-                        <div class="flex items-center text-white">
-                            <i class="fas fa-users text-yellow-400 mr-3 text-xl"></i>
+                        <div class="glass solarium-accent flex items-center text-gray-900 px-6 py-4 rounded-full border border-white/30 natural-shadow">
+                            <i class="fas fa-users text-purple-600 mr-3 text-xl"></i>
                             <span class="text-lg font-semibold">200名 + オンライン無制限</span>
                         </div>
                     </div>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#register" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center">
-                            <i class="fas fa-rocket mr-2"></i>
-                            今すぐ参加登録
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mt-4">
+                        <a href="#register" class="apple-btn inline-flex items-center justify-center min-w-[320px] group">
+                            <i class="fas fa-rocket mr-3 text-xl group-hover:scale-110 transition-transform"></i>
+                            <div class="flex flex-col">
+                                <span class="text-xl">今すぐ参加登録</span>
+                                <span class="text-sm opacity-80 font-normal">6月開始予定</span>
+                            </div>
                         </a>
-                        <a href="#about" class="bg-white bg-opacity-20 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center hover:bg-opacity-30 transition">
-                            <i class="fas fa-info-circle mr-2"></i>
-                            詳細を見る
+                        <a href="#about" class="apple-btn-secondary inline-flex items-center justify-center min-w-[260px] group">
+                            <i class="fas fa-info-circle mr-3 text-xl text-blue-600 group-hover:scale-110 transition-transform"></i>
+                            <span class="text-xl">詳細を見る</span>
                         </a>
                     </div>
                 </div>
@@ -1349,30 +1472,6 @@
                 });
             }
         });
-
-        // Toggle requirements section
-        function toggleRequirements() {
-            const requirementsSection = document.getElementById('requirements-section');
-            const arrow = document.getElementById('requirements-arrow');
-            const button = arrow.closest('button');
-            
-            if (requirementsSection.classList.contains('hidden')) {
-                requirementsSection.classList.remove('hidden');
-                arrow.classList.add('rotate-180');
-                button.setAttribute('aria-expanded', 'true');
-                // スムーズなスクロール
-                setTimeout(() => {
-                    requirementsSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'nearest'
-                    });
-                }, 150);
-            } else {
-                requirementsSection.classList.add('hidden');
-                arrow.classList.remove('rotate-180');
-                button.setAttribute('aria-expanded', 'false');
-            }
-        }
 
         // Toggle schedule detail sections with Apple-style animations
         function toggleScheduleDetail(sectionId) {

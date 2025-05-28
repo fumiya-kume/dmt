@@ -181,6 +181,21 @@
             transform: translateZ(0);
             will-change: transform;
         }
+        
+        .requirements-transition {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            overflow: hidden;
+        }
+        
+        .requirements-transition.hidden {
+            max-height: 0;
+            opacity: 0;
+        }
+        
+        .requirements-transition:not(.hidden) {
+            max-height: 2000px;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -297,7 +312,7 @@
                 <div class="flex justify-between items-center">
                     <div class="flex items-center space-x-3">
                         <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                            <i class="fas fa-robot text-blue-600 text-xl"></i>
+                            <img src="https://avatars.githubusercontent.com/u/163618219?s=200&v=4" alt="Devin AI" class="w-6 h-6 rounded-full">
                         </div>
                         <span class="text-white font-bold text-xl">Devin Meetup Tokyo</span>
                     </div>
@@ -316,7 +331,7 @@
                 <div class="text-center">
                     <div class="animate-float mb-8">
                         <div class="w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center shadow-2xl">
-                            <i class="fas fa-robot text-blue-600 text-6xl"></i>
+                            <img src="https://avatars.githubusercontent.com/u/163618219?s=200&v=4" alt="Devin AI" class="w-20 h-20 rounded-full">
                         </div>
                     </div>
                     
@@ -650,12 +665,117 @@
                                 <i class="fas fa-paper-plane mr-2"></i>
                                 登壇申し込みフォームへ
                             </a>
-                            <a href="#" class="bg-gray-100 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition inline-flex items-center justify-center">
+                            <button onclick="toggleRequirements()" class="bg-gray-100 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition inline-flex items-center justify-center" aria-expanded="false" aria-controls="requirements-section">
                                 <i class="fas fa-question-circle mr-2"></i>
                                 応募要項を確認
-                            </a>
+                                <i id="requirements-arrow" class="fas fa-chevron-down ml-2 transition-transform"></i>
+                            </button>
                         </div>
-                    </div>
+                        
+                        <!-- 応募要項の詳細セクション -->
+                        <div id="requirements-section" class="mt-8 bg-white rounded-2xl shadow-lg p-8 requirements-transition hidden">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">登壇応募要項</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                        <i class="fas fa-user-check text-blue-600 mr-2"></i>
+                                        応募資格
+                                    </h4>
+                                    <ul class="space-y-3 text-gray-600">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-sm"></i>
+                                            <span>Devinを実際に使用した経験がある方</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-sm"></i>
+                                            <span>AIを活用した開発・業務改善の経験を共有したい方</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2 text-sm"></i>
+                                            <span>技術レベル不問（初心者から上級者まで歓迎）</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                        <i class="fas fa-clock text-blue-600 mr-2"></i>
+                                        発表時間・形式
+                                    </h4>
+                                    <ul class="space-y-3 text-gray-600">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-microphone text-purple-500 mt-1 mr-2 text-sm"></i>
+                                            <span>発表時間：15分（質疑応答5分含む）</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-desktop text-purple-500 mt-1 mr-2 text-sm"></i>
+                                            <span>スライド形式またはライブデモ</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-language text-purple-500 mt-1 mr-2 text-sm"></i>
+                                            <span>発表言語：日本語または英語</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                        <i class="fas fa-lightbulb text-blue-600 mr-2"></i>
+                                        発表テーマ例
+                                    </h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• Devinを使った実際のプロジェクト事例</li>
+                                        <li>• Devinと従来開発手法の比較</li>
+                                        <li>• AI開発者としての経験とTips</li>
+                                        <li>• Devinの活用による業務効率化</li>
+                                        <li>• 今後のAI開発環境への展望</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                        <i class="fas fa-gift text-blue-600 mr-2"></i>
+                                        登壇者特典
+                                    </h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• 特別な登壇者ノベルティ</li>
+                                        <li>• 登壇証明書の発行</li>
+                                        <li>• メルカリオフィス見学ツアー</li>
+                                        <li>• 懇親会への優先参加</li>
+                                        <li>• 発表資料の公式サイト掲載</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl">
+                                <h4 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+                                    応募方法
+                                </h4>
+                                <p class="text-gray-600 mb-4">
+                                    下記の情報を含めて、応募フォームよりお申し込みください：
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                                    <div>
+                                        <p class="font-medium">【必須項目】</p>
+                                        <ul class="mt-2 space-y-1">
+                                            <li>• 発表タイトル（仮題可）</li>
+                                            <li>• 発表概要（200文字程度）</li>
+                                            <li>• Devin使用経験の詳細</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">【締切・選考】</p>
+                                        <ul class="mt-2 space-y-1">
+                                            <li>• 応募締切：2025年7月10日</li>
+                                            <li>• 選考結果通知：7月15日頃</li>
+                                            <li>• 登壇枠：最大8名様</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -826,7 +946,7 @@
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                            <i class="fas fa-robot text-white"></i>
+                            <img src="https://avatars.githubusercontent.com/u/163618219?s=200&v=4" alt="Devin AI" class="w-6 h-6 rounded-full">
                         </div>
                         <span class="text-xl font-bold">Devin Meetup Tokyo</span>
                     </div>
@@ -990,6 +1110,30 @@
                 });
             }
         });
+
+        // Toggle requirements section
+        function toggleRequirements() {
+            const requirementsSection = document.getElementById('requirements-section');
+            const arrow = document.getElementById('requirements-arrow');
+            const button = arrow.closest('button');
+            
+            if (requirementsSection.classList.contains('hidden')) {
+                requirementsSection.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+                button.setAttribute('aria-expanded', 'true');
+                // スムーズなスクロール
+                setTimeout(() => {
+                    requirementsSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }, 150);
+            } else {
+                requirementsSection.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+                button.setAttribute('aria-expanded', 'false');
+            }
+        }
     </script>
 </body>
 </html> 

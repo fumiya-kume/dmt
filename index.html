@@ -317,6 +317,199 @@
             max-height: 2000px;
             opacity: 1;
         }
+        
+        .schedule-detail {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-origin: top;
+        }
+        
+        .schedule-detail.hidden {
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+            margin-top: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        
+        .schedule-detail:not(.hidden) {
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .schedule-item {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 16px;
+        }
+        
+        .schedule-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.15),
+                transparent
+            );
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+        
+        .schedule-item:hover::before {
+            left: 100%;
+        }
+        
+        .schedule-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                0 4px 16px rgba(0, 0, 0, 0.06),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+        }
+        
+        .schedule-item.expanded {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 
+                0 12px 48px rgba(0, 0, 0, 0.15),
+                0 6px 24px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+        }
+        
+        @keyframes pulse {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+            }
+            100% { 
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+        }
+        
+        .group:hover .transition-transform {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .schedule-item .chevron-icon {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center;
+        }
+        
+        .schedule-item .chevron-icon.rotate-180 {
+            transform: rotate(180deg) scale(1.1);
+            color: rgba(59, 130, 246, 0.8);
+        }
+        
+        .time-badge {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .time-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            transition: transform 0.6s ease;
+        }
+        
+        .group:hover .time-badge::before {
+            transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+        
+        .detail-content {
+            animation: detailContentSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        @keyframes detailContentSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .icon-bounce {
+            transition: all 0.3s ease;
+        }
+        
+        .group:hover .icon-bounce {
+            transform: scale(1.1);
+        }
+        
+        @keyframes scheduleItemBounce {
+            0% { transform: translateY(-4px) scale(1); }
+            30% { transform: translateY(-6px) scale(1.02); }
+            60% { transform: translateY(-2px) scale(1.01); }
+            100% { transform: translateY(-4px) scale(1); }
+        }
+        
+        @keyframes scheduleDetailCollapse {
+            0% {
+                max-height: 600px;
+                opacity: 1;
+                transform: translateY(0) scaleY(1);
+                backdrop-filter: blur(20px);
+            }
+            50% {
+                opacity: 0.3;
+                transform: translateY(-10px) scaleY(0.98);
+                backdrop-filter: blur(5px);
+            }
+            100% {
+                max-height: 0;
+                opacity: 0;
+                transform: translateY(-20px) scaleY(0.95);
+                backdrop-filter: blur(0px);
+            }
+        }
+        
+        @keyframes appleFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+                filter: blur(10px);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(5px) scale(1.02);
+                filter: blur(2px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -617,107 +810,223 @@
                     </div>
                     
                     <div class="divide-y divide-white/10">
-                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('reception')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-blue-700 bg-blue-100 px-3 py-1 rounded-full">09:00 - 09:30</span>
+                                <span class="time-badge text-sm font-bold text-blue-700 bg-blue-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">09:00 - 09:30</span>
                             </div>
                             <div class="flex-1 ml-8">
-                                <div class="flex items-center">
-                                    <i class="fas fa-door-open text-blue-600 mr-4 text-lg"></i>
-                                    <span class="font-bold text-gray-900 text-lg">受付・開場</span>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="icon-bounce fas fa-door-open text-blue-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">受付・開場</span>
+                                    </div>
+                                    <i class="chevron-icon fas fa-chevron-down text-gray-400 transition-transform group-hover:text-blue-600" id="arrow-reception"></i>
                                 </div>
                                 <p class="text-sm text-gray-600 mt-2 ml-8">受付開始、ネットワーキング、ウェルカムドリンク</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-warm rounded-2xl border border-blue-200/50" id="detail-reception">
+                                    <div class="detail-content">
+                                        <h4 class="font-bold text-gray-900 mb-2">詳細情報</h4>
+                                        <ul class="text-sm text-gray-700 space-y-1">
+                                            <li>• 受付は9:00より開始いたします</li>
+                                            <li>• ウェルカムドリンク（コーヒー・お茶）をご用意</li>
+                                            <li>• 参加者同士の自由なネットワーキング時間</li>
+                                            <li>• 会場内のWi-Fi情報をお渡しします</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('keynote')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-purple-700 bg-purple-100 px-3 py-1 rounded-full">09:30 - 10:10</span>
+                                <span class="time-badge text-sm font-bold text-purple-700 bg-purple-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">09:30 - 10:10</span>
                             </div>
                             <div class="flex-1 ml-8">
-                                <div class="flex items-center">
-                                    <i class="fas fa-microphone text-purple-600 mr-4 text-lg"></i>
-                                    <span class="font-bold text-gray-900 text-lg">Opening & Keynote</span>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="icon-bounce fas fa-microphone text-purple-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Opening & Keynote</span>
+                                    </div>
+                                    <i class="chevron-icon fas fa-chevron-down text-gray-400 transition-transform group-hover:text-purple-600" id="arrow-keynote"></i>
                                 </div>
                                 <p class="text-sm text-gray-600 mt-2 ml-8">Devinの最新動向と今後の展望について（40分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-cool rounded-2xl border border-purple-200/50" id="detail-keynote">
+                                    <div class="detail-content">
+                                        <h4 class="font-bold text-gray-900 mb-2">キーノート詳細</h4>
+                                        <ul class="text-sm text-gray-700 space-y-1">
+                                            <li>• Devinの技術的進歩と最新機能</li>
+                                            <li>• AIソフトウェアエンジニアの未来像</li>
+                                            <li>• 実際の開発現場での活用事例</li>
+                                            <li>• Q&Aセッションを含みます</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session12')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-green-700 bg-green-100 px-3 py-1 rounded-full">10:25 - 12:05</span>
+                                <span class="text-sm font-bold text-green-700 bg-green-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">10:25 - 12:05</span>
                             </div>
                             <div class="flex-1 ml-8">
-                                <div class="flex items-center">
-                                    <i class="fas fa-users text-green-600 mr-4 text-lg"></i>
-                                    <span class="font-bold text-gray-900 text-lg">Session 1 & 2</span>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-users text-green-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Session 1 & 2</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-green-600" id="arrow-session12"></i>
                                 </div>
                                 <p class="text-sm text-gray-600 mt-2 ml-8">Devinの活用事例や技術解説（各40分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-accent rounded-2xl border border-green-200/50" id="detail-session12">
+                                    <h4 class="font-bold text-gray-900 mb-2">セッション内容</h4>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900">Session 1 (10:25-11:05)</h5>
+                                            <p class="text-sm text-gray-700">「Devinとペアプログラミング」</p>
+                                        </div>
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900">Session 2 (11:20-12:00)</h5>
+                                            <p class="text-sm text-gray-700">「チーム開発でのDevin活用術」</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('lunch')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-orange-700 bg-orange-100 px-3 py-1 rounded-full">12:05 - 13:05</span>
+                                <span class="text-sm font-bold text-orange-700 bg-orange-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">12:05 - 13:05</span>
                             </div>
                             <div class="flex-1 ml-8">
-                                <div class="flex items-center">
-                                    <i class="fas fa-utensils text-orange-600 mr-4 text-lg"></i>
-                                    <span class="font-bold text-gray-900 text-lg">ランチ＆ネットワーキング</span>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-utensils text-orange-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">ランチ＆ネットワーキング</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-orange-600" id="arrow-lunch"></i>
                                 </div>
                                 <p class="text-sm text-gray-600 mt-2 ml-8">参加者同士での情報交換とネットワーキング</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-warm rounded-2xl border border-orange-200/50" id="detail-lunch">
+                                    <h4 class="font-bold text-gray-900 mb-2">ランチ詳細</h4>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• オフライン参加者には無料ランチボックスを提供</li>
+                                        <li>• 各テーブルでテーマ別ディスカッション</li>
+                                        <li>• スポンサー企業ブースでの情報交換</li>
+                                        <li>• Devin関連書籍の展示・販売</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session36')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-red-700 bg-red-100 px-3 py-1 rounded-full">13:05 - 16:25</span>
+                                <span class="text-sm font-bold text-red-700 bg-red-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">13:05 - 16:25</span>
                             </div>
                             <div class="flex-1 ml-8">
-                                <div class="flex items-center">
-                                    <i class="fas fa-presentation text-red-600 mr-4 text-lg"></i>
-                                    <span class="font-bold text-gray-900 text-lg">Session 3-6</span>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-presentation text-red-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Session 3-6</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-red-600" id="arrow-session36"></i>
                                 </div>
                                 <p class="text-sm text-gray-600 mt-2 ml-8">午後の登壇セッション（各40分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-cool rounded-2xl border border-red-200/50" id="detail-session36">
+                                    <h4 class="font-bold text-gray-900 mb-3">午後セッション詳細</h4>
+                                    <div class="grid md:grid-cols-2 gap-3">
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900 text-sm">Session 3 (13:05-13:45)</h5>
+                                            <p class="text-xs text-gray-700">「Devinを使った爆速開発」</p>
+                                        </div>
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900 text-sm">Session 4 (14:00-14:40)</h5>
+                                            <p class="text-xs text-gray-700">「AIペアプロの新時代」</p>
+                                        </div>
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900 text-sm">Session 5 (14:50-15:30)</h5>
+                                            <p class="text-xs text-gray-700">「エンタープライズでのDevin導入」</p>
+                                        </div>
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900 text-sm">Session 6 (15:45-16:25)</h5>
+                                            <p class="text-xs text-gray-700">「Devinと未来のSE像」</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('lt')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">16:40 - 17:20</span>
+                                <span class="text-sm font-bold text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">16:40 - 17:20</span>
                             </div>
                             <div class="flex-1 ml-8">
-                                <div class="flex items-center">
-                                    <i class="fas fa-bolt text-indigo-600 mr-4 text-lg"></i>
-                                    <span class="font-bold text-gray-900 text-lg">Lightning Talks</span>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-bolt text-indigo-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Lightning Talks</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-indigo-600" id="arrow-lt"></i>
                                 </div>
                                 <p class="text-sm text-gray-600 mt-2 ml-8">5分間のクイック発表セッション（8本程度）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-accent rounded-2xl border border-indigo-200/50" id="detail-lt">
+                                    <h4 class="font-bold text-gray-900 mb-2">LT詳細</h4>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• 各発表5分（質疑応答なし）</li>
+                                        <li>• Devin体験談、失敗談、Tips共有</li>
+                                        <li>• 当日飛び入り参加も歓迎</li>
+                                        <li>• 投票で「ベストLT賞」を決定</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('closing')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-pink-700 bg-pink-100 px-3 py-1 rounded-full">17:20 - 18:00</span>
+                                <span class="text-sm font-bold text-pink-700 bg-pink-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">17:20 - 18:00</span>
                             </div>
                             <div class="flex-1 ml-8">
-                                <div class="flex items-center">
-                                    <i class="fas fa-flag-checkered text-pink-600 mr-4 text-lg"></i>
-                                    <span class="font-bold text-gray-900 text-lg">クロージング</span>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-flag-checkered text-pink-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">クロージング</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-pink-600" id="arrow-closing"></i>
                                 </div>
                                 <p class="text-sm text-gray-600 mt-2 ml-8">イベントのまとめ、参加者へのお礼、今後の展望</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-warm rounded-2xl border border-pink-200/50" id="detail-closing">
+                                    <h4 class="font-bold text-gray-900 mb-2">クロージング内容</h4>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• イベント全体の振り返りとハイライト</li>
+                                        <li>• 参加者アンケートのお願い</li>
+                                        <li>• 次回イベントの予告</li>
+                                        <li>• 懇親会の案内と注意事項</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-5 px-8 glass bg-gradient-to-r from-yellow-400/60 to-orange-500/60 text-gray-800 backdrop-blur-sm border-t-2 border-orange-200/50">
+                        <div class="schedule-item flex items-center py-5 px-8 glass bg-gradient-to-r from-yellow-400/60 to-orange-500/60 text-gray-800 backdrop-blur-sm border-t-2 border-orange-200/50 hover:from-yellow-400/70 hover:to-orange-500/70 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('party')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-yellow-800 bg-yellow-100 px-3 py-1 rounded-full">19:00 - 21:00</span>
+                                <span class="text-sm font-bold text-yellow-800 bg-yellow-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">19:00 - 21:00</span>
                             </div>
                             <div class="flex-1 ml-8">
-                                <div class="flex items-center">
-                                    <i class="fas fa-glass-cheers text-orange-600 mr-4 text-lg"></i>
-                                    <span class="font-bold text-gray-900 text-lg">懇親会</span>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-glass-cheers text-orange-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">懇親会</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-600 transition-transform group-hover:text-orange-700" id="arrow-party"></i>
                                 </div>
                                 <p class="text-sm text-gray-700 mt-2 ml-8">同じ会場で懇親会を開催！参加者同士の更なる交流とネットワーキングの場</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-accent rounded-2xl border border-orange-200/50" id="detail-party">
+                                    <h4 class="font-bold text-gray-900 mb-2">懇親会詳細</h4>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• フリードリンク＆軽食をご用意</li>
+                                        <li>• スポンサー企業による製品デモ</li>
+                                        <li>• 参加者同士の名刺交換・交流タイム</li>
+                                        <li>• Devin関連グッズの抽選会</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1064,6 +1373,53 @@
                 button.setAttribute('aria-expanded', 'false');
             }
         }
+
+        // Toggle schedule detail sections with Apple-style animations
+        function toggleScheduleDetail(sectionId) {
+            const detailSection = document.getElementById(`detail-${sectionId}`);
+            const arrow = document.getElementById(`arrow-${sectionId}`);
+            const scheduleItem = arrow.closest('.schedule-item');
+            
+            if (detailSection.classList.contains('hidden')) {
+                // Close all other details first
+                document.querySelectorAll('.schedule-detail:not(.hidden)').forEach(detail => {
+                    detail.classList.add('hidden');
+                });
+                document.querySelectorAll('[id^="arrow-"].rotate-180').forEach(arrow => {
+                    arrow.classList.remove('rotate-180');
+                });
+                document.querySelectorAll('.schedule-item.expanded').forEach(item => {
+                    item.classList.remove('expanded');
+                });
+                
+                // Open clicked section
+                scheduleItem.classList.add('expanded');
+                arrow.classList.add('rotate-180');
+                detailSection.classList.remove('hidden');
+                
+            } else {
+                // Close section
+                scheduleItem.classList.remove('expanded');
+                detailSection.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+
+        // Add pulse animation to time badges with Apple-style timing
+        function animateTimeBadges() {
+            const badges = document.querySelectorAll('.time-badge');
+            badges.forEach((badge, index) => {
+                setTimeout(() => {
+                    badge.style.animation = 'pulse 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+                    setTimeout(() => {
+                        badge.style.animation = '';
+                    }, 1200);
+                }, index * 150);
+            });
+        }
+
+        // Animate badges every 12 seconds with Apple-style timing
+        setInterval(animateTimeBadges, 12000);
     </script>
 </body>
 </html> 

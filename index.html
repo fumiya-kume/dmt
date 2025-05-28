@@ -157,10 +157,131 @@
         }
         
         .glass {
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.125);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 2px 8px rgba(255, 255, 255, 0.2) inset,
+                0 -2px 8px rgba(0, 0, 0, 0.05) inset;
+        }
+        
+        .glass-strong {
+            backdrop-filter: blur(24px) saturate(200%);
+            -webkit-backdrop-filter: blur(24px) saturate(200%);
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.25) 0%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.15),
+                0 4px 12px rgba(255, 255, 255, 0.3) inset,
+                0 -4px 12px rgba(0, 0, 0, 0.1) inset;
+        }
+        
+        .glass-hover {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .glass-hover:hover {
+            backdrop-filter: blur(28px) saturate(220%);
+            -webkit-backdrop-filter: blur(28px) saturate(220%);
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.3) 0%,
+                rgba(255, 255, 255, 0.15) 100%
+            );
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.2),
+                0 6px 16px rgba(255, 255, 255, 0.4) inset,
+                0 -6px 16px rgba(0, 0, 0, 0.08) inset;
+        }
+        
+        .solarium-warm {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 245, 235, 0.8) 0%,
+                rgba(255, 235, 215, 0.6) 50%,
+                rgba(255, 228, 196, 0.4) 100%
+            );
+            border: 1px solid rgba(255, 215, 160, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(255, 140, 60, 0.15),
+                0 2px 8px rgba(255, 255, 255, 0.6) inset;
+        }
+        
+        .solarium-cool {
+            background: linear-gradient(
+                135deg,
+                rgba(235, 245, 255, 0.8) 0%,
+                rgba(215, 235, 255, 0.6) 50%,
+                rgba(196, 228, 255, 0.4) 100%
+            );
+            border: 1px solid rgba(160, 215, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(60, 140, 255, 0.15),
+                0 2px 8px rgba(255, 255, 255, 0.6) inset;
+        }
+        
+        .solarium-accent {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 248, 240, 0.8) 100%
+            );
+            border: 2px solid rgba(255, 215, 160, 0.5);
+            box-shadow: 
+                0 12px 48px rgba(255, 140, 60, 0.2),
+                0 4px 16px rgba(255, 255, 255, 0.8) inset,
+                0 -2px 8px rgba(255, 180, 120, 0.3) inset;
+        }
+        
+        .natural-shadow {
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.05),
+                0 8px 24px rgba(0, 0, 0, 0.08),
+                0 16px 32px rgba(0, 0, 0, 0.04);
+        }
+        
+        .natural-shadow-strong {
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.08),
+                0 12px 32px rgba(0, 0, 0, 0.12),
+                0 24px 48px rgba(0, 0, 0, 0.06);
+        }
+        
+        .warm-glow {
+            position: relative;
+        }
+        
+        .warm-glow::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(
+                45deg,
+                rgba(255, 140, 60, 0.3),
+                rgba(255, 180, 120, 0.2),
+                rgba(255, 215, 160, 0.1),
+                rgba(255, 140, 60, 0.3)
+            );
+            border-radius: inherit;
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .warm-glow:hover::before {
+            opacity: 1;
         }
         
         .sparkle {
@@ -389,64 +510,64 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="card-hover bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl">
+                <div class="card-hover glass-strong solarium-warm glass-hover warm-glow p-8 rounded-3xl border border-white/20 natural-shadow">
                     <div class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-code text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">自律的コーディング</h3>
-                    <p class="text-gray-600">
+                    <p class="text-gray-700">
                         Devinは独自のコードエディタ、ターミナル、ブラウザを使用して、複雑なソフトウェア開発タスクを完全に自律的に実行できます。
                     </p>
                 </div>
                 
-                <div class="card-hover bg-gradient-to-br from-purple-50 to-pink-100 p-8 rounded-2xl">
+                <div class="card-hover glass-strong solarium-cool glass-hover warm-glow p-8 rounded-3xl border border-white/20 natural-shadow">
                     <div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-brain text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">高度な推論能力</h3>
-                    <p class="text-gray-600">
+                    <p class="text-gray-700">
                         長期的な推論と計画により、数千の決定を要する複雑なエンジニアリングタスクを実行できます。
                     </p>
                 </div>
                 
-                <div class="card-hover bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-2xl">
+                <div class="card-hover glass-strong solarium-accent glass-hover warm-glow p-8 rounded-3xl border border-white/20 natural-shadow">
                     <div class="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-handshake text-white text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">協働的パートナー</h3>
-                    <p class="text-gray-600">
+                    <p class="text-gray-700">
                         リアルタイムで進捗を報告し、フィードバックを受け入れ、設計の選択について人間と協力して作業します。
                     </p>
                 </div>
             </div>
             
-            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
+            <div class="glass-strong solarium-accent bg-gradient-to-r from-blue-600/60 to-purple-600/60 rounded-3xl p-8 md:p-12 text-gray-900 border-2 border-white/30 natural-shadow-strong warm-glow">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div>
-                        <h3 class="text-3xl font-bold mb-6">Devinの実績</h3>
-                        <ul class="space-y-4">
+                        <h3 class="text-4xl font-bold mb-8 text-gray-900">Devinの実績</h3>
+                        <ul class="space-y-6">
                             <li class="flex items-center">
-                                <i class="fas fa-check-circle text-yellow-400 mr-3"></i>
-                                <span>SWE-benchで13.86%の問題を解決（従来の7倍の性能）</span>
+                                <i class="fas fa-check-circle text-green-600 mr-4 text-xl"></i>
+                                <span class="text-lg font-medium">SWE-benchで13.86%の問題を解決（従来の7倍の性能）</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check-circle text-yellow-400 mr-3"></i>
-                                <span>エンドツーエンドでWebアプリケーションを構築・デプロイ</span>
+                                <i class="fas fa-check-circle text-green-600 mr-4 text-xl"></i>
+                                <span class="text-lg font-medium">エンドツーエンドでWebアプリケーションを構築・デプロイ</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check-circle text-yellow-400 mr-3"></i>
-                                <span>オープンソースプロジェクトへの貢献とバグ修正</span>
+                                <i class="fas fa-check-circle text-green-600 mr-4 text-xl"></i>
+                                <span class="text-lg font-medium">オープンソースプロジェクトへの貢献とバグ修正</span>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-check-circle text-yellow-400 mr-3"></i>
-                                <span>実際のUpworkプロジェクトの完了</span>
+                                <i class="fas fa-check-circle text-green-600 mr-4 text-xl"></i>
+                                <span class="text-lg font-medium">実際のUpworkプロジェクトの完了</span>
                             </li>
                         </ul>
                     </div>
                     <div class="text-center">
                         <div class="animate-float">
-                            <div class="w-48 h-48 mx-auto bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                                <i class="fas fa-chart-line text-6xl"></i>
+                            <div class="w-48 h-48 mx-auto glass-strong solarium-warm rounded-full flex items-center justify-center border-4 border-white/30">
+                                <i class="fas fa-chart-line text-6xl text-blue-600"></i>
                             </div>
                         </div>
                     </div>
@@ -467,20 +588,20 @@
                 </p>
                 
                 <!-- Call for Proposal Banner -->
-                <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white p-6 rounded-2xl mb-12 mx-auto max-w-4xl">
-                    <div class="flex items-center justify-center mb-4">
-                        <i class="fas fa-bullhorn text-3xl mr-4"></i>
-                        <h3 class="text-2xl font-bold">Call for Proposals 募集中！</h3>
+                <div class="glass-strong solarium-accent warm-glow bg-gradient-to-r from-orange-500/60 to-red-500/60 text-gray-800 p-8 rounded-3xl mb-12 mx-auto max-w-4xl border-2 border-orange-200/50 natural-shadow-strong">
+                    <div class="flex items-center justify-center mb-6">
+                        <i class="fas fa-bullhorn text-4xl mr-4 text-orange-600"></i>
+                        <h3 class="text-3xl font-bold text-gray-900">Call for Proposals 募集中！</h3>
                     </div>
-                    <p class="text-lg mb-4">
+                    <p class="text-xl mb-6 text-gray-700 leading-relaxed">
                         Devinの活用事例、技術解説、実装体験など、あなたの知見をシェアしませんか？
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                        <button class="glass solarium-warm text-gray-800 px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300 border border-orange-300/50 natural-shadow">
                             <i class="fas fa-microphone mr-2"></i>
                             登壇申し込み
                         </button>
-                        <button class="bg-white text-red-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                        <button class="glass solarium-cool text-gray-800 px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-300 border border-blue-300/50 natural-shadow">
                             <i class="fas fa-lightning-bolt mr-2"></i>
                             LT申し込み
                         </button>
@@ -490,113 +611,113 @@
             
             <div class="max-w-4xl mx-auto">
                 <!-- コンパクトなスケジュールテーブル -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
-                        <h3 class="text-2xl font-bold text-center">タイムテーブル</h3>
+                <div class="glass-strong solarium-accent rounded-3xl shadow-lg overflow-hidden border-2 border-white/30 natural-shadow-strong">
+                    <div class="glass bg-gradient-to-r from-blue-600/70 to-purple-600/70 text-white p-8 backdrop-blur-sm border-b border-white/20">
+                        <h3 class="text-3xl font-bold text-center">タイムテーブル</h3>
                     </div>
                     
-                    <div class="divide-y divide-gray-200">
-                        <div class="flex items-center py-4 px-6 hover:bg-gray-50 transition">
-                            <div class="w-32 text-right">
-                                <span class="text-sm font-semibold text-blue-600">09:00 - 09:30</span>
+                    <div class="divide-y divide-white/10">
+                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-blue-700 bg-blue-100 px-3 py-1 rounded-full">09:00 - 09:30</span>
                             </div>
-                            <div class="flex-1 ml-6">
+                            <div class="flex-1 ml-8">
                                 <div class="flex items-center">
-                                    <i class="fas fa-door-open text-blue-500 mr-3"></i>
-                                    <span class="font-semibold text-gray-900">受付・開場</span>
+                                    <i class="fas fa-door-open text-blue-600 mr-4 text-lg"></i>
+                                    <span class="font-bold text-gray-900 text-lg">受付・開場</span>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-1">受付開始、ネットワーキング、ウェルカムドリンク</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">受付開始、ネットワーキング、ウェルカムドリンク</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-4 px-6 hover:bg-gray-50 transition">
-                            <div class="w-32 text-right">
-                                <span class="text-sm font-semibold text-purple-600">09:30 - 10:00</span>
+                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-purple-700 bg-purple-100 px-3 py-1 rounded-full">09:30 - 10:10</span>
                             </div>
-                            <div class="flex-1 ml-6">
+                            <div class="flex-1 ml-8">
                                 <div class="flex items-center">
-                                    <i class="fas fa-microphone text-purple-500 mr-3"></i>
-                                    <span class="font-semibold text-gray-900">Opening & Keynote</span>
+                                    <i class="fas fa-microphone text-purple-600 mr-4 text-lg"></i>
+                                    <span class="font-bold text-gray-900 text-lg">Opening & Keynote</span>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-1">Devinの最新動向と今後の展望について（30分）</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">Devinの最新動向と今後の展望について（40分）</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-4 px-6 hover:bg-gray-50 transition">
-                            <div class="w-32 text-right">
-                                <span class="text-sm font-semibold text-green-600">10:15 - 12:00</span>
+                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-green-700 bg-green-100 px-3 py-1 rounded-full">10:25 - 12:05</span>
                             </div>
-                            <div class="flex-1 ml-6">
+                            <div class="flex-1 ml-8">
                                 <div class="flex items-center">
-                                    <i class="fas fa-users text-green-500 mr-3"></i>
-                                    <span class="font-semibold text-gray-900">登壇セッション</span>
+                                    <i class="fas fa-users text-green-600 mr-4 text-lg"></i>
+                                    <span class="font-bold text-gray-900 text-lg">Session 1 & 2</span>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-1">Devinの活用事例や技術解説など、選りすぐりの登壇セッション</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">Devinの活用事例や技術解説（各40分）</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-4 px-6 hover:bg-gray-50 transition">
-                            <div class="w-32 text-right">
-                                <span class="text-sm font-semibold text-orange-600">12:00 - 13:00</span>
+                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-orange-700 bg-orange-100 px-3 py-1 rounded-full">12:05 - 13:05</span>
                             </div>
-                            <div class="flex-1 ml-6">
+                            <div class="flex-1 ml-8">
                                 <div class="flex items-center">
-                                    <i class="fas fa-utensils text-orange-500 mr-3"></i>
-                                    <span class="font-semibold text-gray-900">ランチ＆ネットワーキング</span>
+                                    <i class="fas fa-utensils text-orange-600 mr-4 text-lg"></i>
+                                    <span class="font-bold text-gray-900 text-lg">ランチ＆ネットワーキング</span>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-1">参加者同士での情報交換とネットワーキング</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">参加者同士での情報交換とネットワーキング</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-4 px-6 hover:bg-gray-50 transition">
-                            <div class="w-32 text-right">
-                                <span class="text-sm font-semibold text-red-600">13:00 - 16:25</span>
+                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-red-700 bg-red-100 px-3 py-1 rounded-full">13:05 - 16:25</span>
                             </div>
-                            <div class="flex-1 ml-6">
+                            <div class="flex-1 ml-8">
                                 <div class="flex items-center">
-                                    <i class="fas fa-users text-red-500 mr-3"></i>
-                                    <span class="font-semibold text-gray-900">午後セッション</span>
+                                    <i class="fas fa-presentation text-red-600 mr-4 text-lg"></i>
+                                    <span class="font-bold text-gray-900 text-lg">Session 3-6</span>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-1">追加の登壇セッション、パネルディスカッション、ハンズオン等</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">午後の登壇セッション（各40分）</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-4 px-6 hover:bg-gray-50 transition">
-                            <div class="w-32 text-right">
-                                <span class="text-sm font-semibold text-indigo-600">16:40 - 17:20</span>
+                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">16:40 - 17:20</span>
                             </div>
-                            <div class="flex-1 ml-6">
+                            <div class="flex-1 ml-8">
                                 <div class="flex items-center">
-                                    <i class="fas fa-bolt text-indigo-500 mr-3"></i>
-                                    <span class="font-semibold text-gray-900">Lightning Talks</span>
+                                    <i class="fas fa-bolt text-indigo-600 mr-4 text-lg"></i>
+                                    <span class="font-bold text-gray-900 text-lg">Lightning Talks</span>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-1">5分間のクイック発表セッション（8本程度）</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">5分間のクイック発表セッション（8本程度）</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-4 px-6 hover:bg-gray-50 transition">
-                            <div class="w-32 text-right">
-                                <span class="text-sm font-semibold text-pink-600">17:20 - 18:00</span>
+                        <div class="flex items-center py-5 px-8 hover:bg-white/10 transition backdrop-blur-sm">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-pink-700 bg-pink-100 px-3 py-1 rounded-full">17:20 - 18:00</span>
                             </div>
-                            <div class="flex-1 ml-6">
+                            <div class="flex-1 ml-8">
                                 <div class="flex items-center">
-                                    <i class="fas fa-flag-checkered text-pink-500 mr-3"></i>
-                                    <span class="font-semibold text-gray-900">クロージング</span>
+                                    <i class="fas fa-flag-checkered text-pink-600 mr-4 text-lg"></i>
+                                    <span class="font-bold text-gray-900 text-lg">クロージング</span>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-1">イベントのまとめ、参加者へのお礼、今後の展望</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">イベントのまとめ、参加者へのお礼、今後の展望</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-center py-4 px-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white">
-                            <div class="w-32 text-right">
-                                <span class="text-sm font-semibold">19:00 - 21:00</span>
+                        <div class="flex items-center py-5 px-8 glass bg-gradient-to-r from-yellow-400/60 to-orange-500/60 text-gray-800 backdrop-blur-sm border-t-2 border-orange-200/50">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-yellow-800 bg-yellow-100 px-3 py-1 rounded-full">19:00 - 21:00</span>
                             </div>
-                            <div class="flex-1 ml-6">
+                            <div class="flex-1 ml-8">
                                 <div class="flex items-center">
-                                    <i class="fas fa-glass-cheers text-white mr-3"></i>
-                                    <span class="font-semibold">懇親会</span>
+                                    <i class="fas fa-glass-cheers text-orange-600 mr-4 text-lg"></i>
+                                    <span class="font-bold text-gray-900 text-lg">懇親会</span>
                                 </div>
-                                <p class="text-sm text-white/90 mt-1">同じ会場で懇親会を開催！参加者同士の更なる交流とネットワーキングの場</p>
+                                <p class="text-sm text-gray-700 mt-2 ml-8">同じ会場で懇親会を開催！参加者同士の更なる交流とネットワーキングの場</p>
                             </div>
                         </div>
                     </div>
@@ -619,7 +740,7 @@
             
             <div class="grid md:grid-cols-2 gap-12 items-stretch">
                 <div>
-                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl h-full">
+                    <div class="glass-strong solarium-accent p-8 rounded-3xl h-full border-2 border-white/30 natural-shadow-strong warm-glow">
                         <div class="flex items-center mb-6">
                             <div class="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-building text-white text-2xl"></i>
@@ -655,7 +776,7 @@
                 </div>
                 
                 <div>
-                    <div class="bg-gray-200 rounded-2xl overflow-hidden h-full">
+                    <div class="glass-strong solarium-cool rounded-3xl overflow-hidden h-full border-2 border-white/30 natural-shadow-strong">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.4970037474693!2d139.72924251525795!3d35.660195480206286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8a0e6d1e63%3A0x94b9c3d2e0b3a5f0!2z5YWt5pys5pyo44OS44Or44K6IOajruOCv-ODr-ODvA!5e0!3m2!1sja!2sjp!4v1640995200000!5m2!1sja!2sjp"
                             width="100%" 
@@ -664,36 +785,36 @@
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade"
-                            class="rounded-2xl">
+                            class="rounded-3xl">
                         </iframe>
                     </div>
                 </div>
             </div>
             
             <div class="mt-16 grid md:grid-cols-2 gap-8">
-                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl h-full flex flex-col">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-users text-blue-600 text-2xl mr-4"></i>
-                        <h3 class="text-xl font-bold text-gray-900">オフライン参加</h3>
+                <div class="card-hover glass-strong solarium-warm glass-hover warm-glow p-8 rounded-3xl h-full flex flex-col border-2 border-blue-200/50 natural-shadow-strong">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-users text-blue-700 text-3xl mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900">オフライン参加</h3>
                     </div>
-                    <p class="text-gray-600 mb-4 flex-grow">定員200名様限定。直接会場でDevinの技術を体験し、参加者同士のネットワーキングをお楽しみいただけます。</p>
-                    <ul class="text-sm text-gray-500 space-y-1">
-                        <li>• ハンズオンワークショップ参加可能</li>
-                        <li>• ランチ・ドリンク提供</li>
-                        <li>• 限定ノベルティプレゼント</li>
+                    <p class="text-gray-700 mb-6 flex-grow text-lg leading-relaxed">定員200名様限定。直接会場でDevinの技術を体験し、参加者同士のネットワーキングをお楽しみいただけます。</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>ハンズオンワークショップ参加可能</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>ランチ・ドリンク提供</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i>限定ノベルティプレゼント</li>
                     </ul>
                 </div>
                 
-                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl h-full flex flex-col">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-video text-purple-600 text-2xl mr-4"></i>
-                        <h3 class="text-xl font-bold text-gray-900">オンライン参加</h3>
+                <div class="card-hover glass-strong solarium-cool glass-hover warm-glow p-8 rounded-3xl h-full flex flex-col border-2 border-purple-200/50 natural-shadow-strong">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-video text-purple-700 text-3xl mr-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900">オンライン参加</h3>
                     </div>
-                    <p class="text-gray-600 mb-4 flex-grow">人数制限なし。世界中どこからでもDevinの最新情報とライブデモをご視聴いただけます。</p>
-                    <ul class="text-sm text-gray-500 space-y-1">
-                        <li>• HD画質でのライブ配信</li>
-                        <li>• リアルタイムQ&A参加</li>
-                        <li>• 録画視聴可能</li>
+                    <p class="text-gray-700 mb-6 flex-grow text-lg leading-relaxed">人数制限なし。世界中どこからでもDevinの最新情報とライブデモをご視聴いただけます。</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i>HD画質でのライブ配信</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i>リアルタイムQ&A参加</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-purple-500 mr-2"></i>録画視聴可能</li>
                     </ul>
                 </div>
             </div>
@@ -711,51 +832,51 @@
             </p>
             
             <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="glass p-8 rounded-2xl">
-                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-user-friends text-blue-600 text-2xl"></i>
+                <div class="glass-strong solarium-warm warm-glow p-8 rounded-3xl border-2 border-blue-200/50 natural-shadow-strong">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-friends text-blue-600 text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">オフライン参加</h3>
-                    <p class="text-blue-100 mb-6">定員200名 - 六本木ヒルズにて</p>
-                    <div class="text-white mb-6">
-                        <span class="text-3xl font-bold">無料</span>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4 text-center">オフライン参加</h3>
+                    <p class="text-gray-700 mb-6 text-center text-lg">定員200名 - 六本木ヒルズにて</p>
+                    <div class="text-gray-900 mb-6 text-center">
+                        <span class="text-4xl font-bold">無料</span>
                     </div>
-                    <button class="w-full bg-white text-blue-600 py-3 px-6 rounded-full font-semibold hover:bg-gray-100 transition">
+                    <button class="w-full glass solarium-accent text-gray-800 py-4 px-6 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 border-2 border-blue-300/50 natural-shadow">
                         オフライン参加を申し込む<br>
-                        <small class="text-xs opacity-75">6月上旬開始予定</small>
+                        <small class="text-sm opacity-75">6月上旬開始予定</small>
                     </button>
                 </div>
                 
-                <div class="glass p-8 rounded-2xl">
-                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-laptop text-purple-600 text-2xl"></i>
+                <div class="glass-strong solarium-cool warm-glow p-8 rounded-3xl border-2 border-purple-200/50 natural-shadow-strong">
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-laptop text-purple-600 text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-4">オンライン参加</h3>
-                    <p class="text-blue-100 mb-6">人数無制限 - ライブ配信にて</p>
-                    <div class="text-white mb-6">
-                        <span class="text-3xl font-bold">無料</span>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4 text-center">オンライン参加</h3>
+                    <p class="text-gray-700 mb-6 text-center text-lg">人数無制限 - ライブ配信にて</p>
+                    <div class="text-gray-900 mb-6 text-center">
+                        <span class="text-4xl font-bold">無料</span>
                     </div>
-                    <button class="w-full bg-white text-purple-600 py-3 px-6 rounded-full font-semibold hover:bg-gray-100 transition">
+                    <button class="w-full glass solarium-accent text-gray-800 py-4 px-6 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 border-2 border-purple-300/50 natural-shadow">
                         オンライン参加を申し込む<br>
-                        <small class="text-xs opacity-75">6月上旬開始予定</small>
+                        <small class="text-sm opacity-75">6月上旬開始予定</small>
                     </button>
                 </div>
             </div>
             
-            <div class="bg-white bg-opacity-10 p-6 rounded-2xl">
-                <h3 class="text-xl font-bold text-white mb-4">参加特典</h3>
-                <div class="grid md:grid-cols-3 gap-4 text-blue-100">
-                    <div class="flex items-center">
-                        <i class="fas fa-gift text-yellow-400 mr-2"></i>
-                        <span>限定ノベルティ</span>
+            <div class="glass-strong solarium-accent warm-glow p-8 rounded-3xl border-2 border-yellow-200/50 natural-shadow-strong">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">参加特典</h3>
+                <div class="grid md:grid-cols-3 gap-6 text-gray-700">
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-gift text-yellow-600 mr-3 text-xl"></i>
+                        <span class="font-semibold">限定ノベルティ</span>
                     </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-certificate text-yellow-400 mr-2"></i>
-                        <span>参加証明書</span>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-certificate text-yellow-600 mr-3 text-xl"></i>
+                        <span class="font-semibold">参加証明書</span>
                     </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-download text-yellow-400 mr-2"></i>
-                        <span>資料ダウンロード</span>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-download text-yellow-600 mr-3 text-xl"></i>
+                        <span class="font-semibold">資料ダウンロード</span>
                     </div>
                 </div>
             </div>

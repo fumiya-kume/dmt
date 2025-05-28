@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devin Meetup Tokyo - July 26, 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 50%, #2d1b69 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .code-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #00ff41;
+            line-height: 1.2;
+            animation: matrix 20s linear infinite;
+        }
+        
+        @keyframes matrix {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
+        .floating-emoji {
+            position: absolute;
+            pointer-events: none;
+            font-size: 2rem;
+            animation: float-random 8s ease-in-out infinite;
+            opacity: 0.8;
+        }
+        
+        @keyframes float-random {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.8;
+            }
+            25% { 
+                transform: translateY(-20px) rotate(90deg);
+                opacity: 1;
+            }
+            50% { 
+                transform: translateY(-10px) rotate(180deg);
+                opacity: 0.6;
+            }
+            75% { 
+                transform: translateY(-30px) rotate(270deg);
+                opacity: 1;
+            }
+        }
+        
+        .code-snippet {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            animation: code-float 15s linear infinite;
+        }
+        
+        @keyframes code-float {
+            0% { 
+                transform: translateX(-100px) translateY(100vh);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% { 
+                transform: translateX(100vw) translateY(-100px);
+                opacity: 0;
+            }
+        }
+        
+        .ai-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: ai-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes ai-pulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7);
+            }
+            50% { 
+                transform: scale(1.5);
+                box-shadow: 0 0 0 10px rgba(0, 255, 136, 0);
+            }
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .typing::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .glass {
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.125);
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #fff;
+            animation: sparkle 2s infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        .parallax {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen relative overflow-hidden">
+        <!-- Code Rain Background -->
+        <div class="code-rain">
+            <div style="position: absolute; left: 5%; animation-delay: 0s;">
+                def create_ai():<br>
+                &nbsp;&nbsp;intelligence = True<br>
+                &nbsp;&nbsp;creativity = ∞<br>
+                &nbsp;&nbsp;return Devin()<br>
+            </div>
+            <div style="position: absolute; left: 15%; animation-delay: 3s;">
+                import future<br>
+                from ai import devin<br>
+                devin.code_with_human()<br>
+                # Amazing results!<br>
+            </div>
+            <div style="position: absolute; left: 25%; animation-delay: 6s;">
+                class AIEngineer:<br>
+                &nbsp;&nbsp;def __init__(self):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;self.name = "Devin"<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;self.skills = ["∞"]<br>
+            </div>
+            <div style="position: absolute; left: 35%; animation-delay: 9s;">
+                console.log("Hello AI!");<br>
+                const devin = new AI();<br>
+                devin.collaborate();<br>
+                // Future is here 🚀<br>
+            </div>
+            <div style="position: absolute; left: 45%; animation-delay: 12s;">
+                git commit -m "AI magic"<br>
+                npm run build<br>
+                docker deploy future<br>
+                echo "Success! 🎉"<br>
+            </div>
+            <div style="position: absolute; left: 55%; animation-delay: 15s;">
+                async function aiCode() {<br>
+                &nbsp;&nbsp;const result = await<br>
+                &nbsp;&nbsp;devin.createApp();<br>
+                &nbsp;&nbsp;return "✨ Magic ✨";<br>
+                }<br>
+            </div>
+            <div style="position: absolute; left: 65%; animation-delay: 18s;">
+                SELECT * FROM ideas<br>
+                WHERE innovation = true<br>
+                AND future_ready = 1<br>
+                ORDER BY awesome DESC;<br>
+            </div>
+            <div style="position: absolute; left: 75%; animation-delay: 1s;">
+                if (human + ai === true) {<br>
+                &nbsp;&nbsp;world.change();<br>
+                &nbsp;&nbsp;future.arrive();<br>
+                &nbsp;&nbsp;dreams.become(reality);<br>
+                }<br>
+            </div>
+            <div style="position: absolute; left: 85%; animation-delay: 4s;">
+                package main<br>
+                func main() {<br>
+                &nbsp;&nbsp;ai := NewDevin()<br>
+                &nbsp;&nbsp;ai.Code("🚀")<br>
+                }<br>
+            </div>
+            <div style="position: absolute; left: 95%; animation-delay: 7s;">
+                curl -X POST ai.future<br>
+                -H "Content: innovation"<br>
+                -d '{"tool": "devin"}'<br>
+                # 200 OK: Success! 💫<br>
+            </div>
+        </div>
+        
+        <!-- Floating Emojis -->
+        <div class="floating-emoji" style="top: 10%; left: 10%; animation-delay: 0s;">🤖</div>
+        <div class="floating-emoji" style="top: 20%; left: 80%; animation-delay: 1s;">💻</div>
+        <div class="floating-emoji" style="top: 30%; left: 15%; animation-delay: 2s;">⚡</div>
+        <div class="floating-emoji" style="top: 40%; left: 90%; animation-delay: 3s;">🚀</div>
+        <div class="floating-emoji" style="top: 50%; left: 5%; animation-delay: 4s;">🔥</div>
+        <div class="floating-emoji" style="top: 60%; left: 75%; animation-delay: 5s;">✨</div>
+        <div class="floating-emoji" style="top: 70%; left: 25%; animation-delay: 6s;">🎯</div>
+        <div class="floating-emoji" style="top: 80%; left: 60%; animation-delay: 7s;">💡</div>
+        <div class="floating-emoji" style="top: 15%; left: 45%; animation-delay: 1.5s;">🧠</div>
+        <div class="floating-emoji" style="top: 35%; left: 70%; animation-delay: 2.5s;">⭐</div>
+        <div class="floating-emoji" style="top: 55%; left: 30%; animation-delay: 3.5s;">🌟</div>
+        <div class="floating-emoji" style="top: 75%; left: 85%; animation-delay: 4.5s;">🎨</div>
+        <div class="floating-emoji" style="top: 25%; left: 55%; animation-delay: 5.5s;">🔮</div>
+        <div class="floating-emoji" style="top: 45%; left: 20%; animation-delay: 6.5s;">💎</div>
+        <div class="floating-emoji" style="top: 65%; left: 40%; animation-delay: 7.5s;">🌈</div>
+        <div class="floating-emoji" style="top: 85%; left: 10%; animation-delay: 0.5s;">🎭</div>
+        <div class="floating-emoji" style="top: 5%; left: 65%; animation-delay: 1.2s;">🔧</div>
+        <div class="floating-emoji" style="top: 95%; left: 50%; animation-delay: 2.8s;">⚙️</div>
+        <div class="floating-emoji" style="top: 12%; left: 35%; animation-delay: 3.7s;">🎪</div>
+        <div class="floating-emoji" style="top: 88%; left: 80%; animation-delay: 4.3s;">🎊</div>
+        
+        <!-- AI Particles -->
+        <div class="ai-particle" style="top: 20%; left: 20%; animation-delay: 0s;"></div>
+        <div class="ai-particle" style="top: 40%; left: 60%; animation-delay: 1s;"></div>
+        <div class="ai-particle" style="top: 60%; left: 30%; animation-delay: 2s;"></div>
+        <div class="ai-particle" style="top: 80%; left: 70%; animation-delay: 3s;"></div>
+        <div class="ai-particle" style="top: 10%; left: 80%; animation-delay: 1.5s;"></div>
+        <div class="ai-particle" style="top: 30%; left: 10%; animation-delay: 2.5s;"></div>
+        <div class="ai-particle" style="top: 50%; left: 90%; animation-delay: 0.5s;"></div>
+        <div class="ai-particle" style="top: 70%; left: 50%; animation-delay: 1.2s;"></div>
+        
+        <div class="absolute inset-0">
+            <div class="sparkle top-20 left-20 animation-delay-0"></div>
+            <div class="sparkle top-40 right-32 animation-delay-1000"></div>
+            <div class="sparkle top-60 left-1/3 animation-delay-2000"></div>
+            <div class="sparkle bottom-40 right-20 animation-delay-3000"></div>
+        </div>
+        
+        <nav class="glass fixed w-full top-0 z-50 py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-robot text-blue-600 text-xl"></i>
+                        </div>
+                        <span class="text-white font-bold text-xl">Devin Meetup Tokyo</span>
+                    </div>
+                    <div class="hidden md:flex space-x-8 text-white">
+                        <a href="#about" class="hover:text-blue-200 transition">About</a>
+                        <a href="#schedule" class="hover:text-blue-200 transition">Schedule</a>
+                        <a href="#venue" class="hover:text-blue-200 transition">Venue</a>
+                        <a href="#register" class="hover:text-blue-200 transition">Register</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center">
+                    <div class="animate-float mb-8">
+                        <div class="w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center shadow-2xl">
+                            <i class="fas fa-robot text-blue-600 text-6xl"></i>
+                        </div>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                        Devin Meetup
+                        <span class="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                            Tokyo 2025
+                        </span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                        世界初のAIソフトウェアエンジニア「Devin」について学び、未来のエンジニアリングを体験する特別なイベント
+                    </p>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12">
+                        <div class="flex items-center text-white">
+                            <i class="fas fa-calendar-alt text-yellow-400 mr-3 text-xl"></i>
+                            <span class="text-lg font-semibold">2025年7月26日（土）</span>
+                        </div>
+                        <div class="flex items-center text-white">
+                            <i class="fas fa-map-marker-alt text-yellow-400 mr-3 text-xl"></i>
+                            <span class="text-lg font-semibold">メルカリ本社</span>
+                        </div>
+                        <div class="flex items-center text-white">
+                            <i class="fas fa-users text-yellow-400 mr-3 text-xl"></i>
+                            <span class="text-lg font-semibold">200名 + オンライン無制限</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#register" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center">
+                            <i class="fas fa-rocket mr-2"></i>
+                            今すぐ参加登録
+                        </a>
+                        <a href="#about" class="bg-white bg-opacity-20 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center hover:bg-opacity-30 transition">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            詳細を見る
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Devin Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Devinとは？
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Cognition Labsが開発した世界初のAIソフトウェアエンジニア。複雑なエンジニアリングタスクを自律的に実行できる革新的なAIアシスタントです。
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">自律的コーディング</h3>
+                    <p class="text-gray-600">
+                        Devinは独自のコードエディタ、ターミナル、ブラウザを使用して、複雑なソフトウェア開発タスクを完全に自律的に実行できます。
+                    </p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-pink-100 p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">高度な推論能力</h3>
+                    <p class="text-gray-600">
+                        長期的な推論と計画により、数千の決定を要する複雑なエンジニアリングタスクを実行できます。
+                    </p>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">協働的パートナー</h3>
+                    <p class="text-gray-600">
+                        リアルタイムで進捗を報告し、フィードバックを受け入れ、設計の選択について人間と協力して作業します。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6">Devinの実績</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-yellow-400 mr-3"></i>
+                                <span>SWE-benchで13.86%の問題を解決（従来の7倍の性能）</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-yellow-400 mr-3"></i>
+                                <span>エンドツーエンドでWebアプリケーションを構築・デプロイ</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-yellow-400 mr-3"></i>
+                                <span>オープンソースプロジェクトへの貢献とバグ修正</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-yellow-400 mr-3"></i>
+                                <span>実際のUpworkプロジェクトの完了</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <div class="animate-float">
+                            <div class="w-48 h-48 mx-auto bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-chart-line text-6xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    イベントスケジュール
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                    Devinの最新技術動向から実践的な活用事例まで、充実したプログラムをご用意しています。
+                </p>
+                
+                <!-- Call for Proposal Banner -->
+                <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white p-6 rounded-2xl mb-12 mx-auto max-w-4xl">
+                    <div class="flex items-center justify-center mb-4">
+                        <i class="fas fa-bullhorn text-3xl mr-4"></i>
+                        <h3 class="text-2xl font-bold">Call for Proposals 募集中！</h3>
+                    </div>
+                    <p class="text-lg mb-4">
+                        Devinの活用事例、技術解説、実装体験など、あなたの知見をシェアしませんか？
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                            <i class="fas fa-microphone mr-2"></i>
+                            登壇申し込み
+                        </button>
+                        <button class="bg-white text-red-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                            <i class="fas fa-lightning-bolt mr-2"></i>
+                            LT申し込み
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-door-open text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">受付・開場</h3>
+                                <p class="text-blue-600 font-semibold">09:00 - 09:30</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 ml-20">受付開始、ネットワーキング、ウェルカムドリンク</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-microphone text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Opening & Keynote</h3>
+                                <p class="text-purple-600 font-semibold">09:30 - 10:00</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 ml-20">Devinの最新動向と今後の展望について（30分）</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">登壇セッション</h3>
+                                <p class="text-green-600 font-semibold">10:15 - 12:00</p>
+                            </div>
+                        </div>
+                        <div class="ml-20">
+                            <p class="text-gray-600 mb-2">Devinの活用事例や技術解説など、選りすぐりの登壇セッション</p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-sm text-gray-500 font-semibold mb-2">登壇テーマ例：</p>
+                                <ul class="text-sm text-gray-500 space-y-1">
+                                    <li>• 実プロジェクトでのDevin活用事例</li>
+                                    <li>• Devinとの協働開発フロー</li>
+                                    <li>• AI時代のエンジニアリング手法</li>
+                                    <li>• Devinを使った開発効率化</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-utensils text-orange-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">ランチ＆ネットワーキング</h3>
+                                <p class="text-orange-600 font-semibold">12:00 - 13:00</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 ml-20">参加者同士での情報交換とネットワーキング</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-red-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">午後セッション</h3>
+                                <p class="text-red-600 font-semibold">13:00 - 16:30</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 ml-20">追加の登壇セッション、パネルディスカッション、ハンズオン等</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-bolt text-indigo-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">Lightning Talks</h3>
+                                <p class="text-indigo-600 font-semibold">16:45 - 17:30</p>
+                            </div>
+                        </div>
+                        <div class="ml-20">
+                            <p class="text-gray-600 mb-2">5分間のクイック発表セッション（5本程度）</p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-sm text-gray-500 font-semibold mb-2">LTテーマ例：</p>
+                                <ul class="text-sm text-gray-500 space-y-1">
+                                    <li>• Devinで作ったちょっとしたツール</li>
+                                    <li>• Devinとの面白い対話エピソード</li>
+                                    <li>• Devinに関する技術Tips</li>
+                                    <li>• 今後のAI開発環境への期待</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-flag-checkered text-pink-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">クロージング</h3>
+                                <p class="text-pink-600 font-semibold">17:30 - 18:00</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 ml-20">イベントのまとめ、参加者へのお礼、今後の展望</p>
+                    </div>
+                    
+                    <div class="card-hover bg-gradient-to-r from-yellow-400 to-orange-500 p-6 rounded-2xl text-white">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-glass-cheers text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">懇親会</h3>
+                                <p class="font-semibold">19:00 - 21:00</p>
+                            </div>
+                        </div>
+                        <div class="ml-20">
+                            <p class="mb-4">同じ会場で懇親会を開催！参加者同士の更なる交流とネットワーキングの場</p>
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <ul class="space-y-1">
+                                    <li>• 軽食・ドリンク提供</li>
+                                    <li>• 登壇者との直接対話</li>
+                                    <li>• 自由な技術談義</li>
+                                    <li>• 今後のコラボレーション相談</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Call for Proposal Details -->
+                <div class="mt-16 bg-white p-8 rounded-2xl border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                        <i class="fas fa-edit text-blue-600 mr-2"></i>
+                        Call for Proposals詳細
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">登壇セッション（15-20分）</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Devinの実践的な活用事例</li>
+                                <li>• 技術的な深掘り解説</li>
+                                <li>• 開発フローの改善事例</li>
+                                <li>• AI協働開発の知見共有</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Lightning Talk（5分）</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• ちょっとした発見やTips</li>
+                                <li>• 面白い実験結果</li>
+                                <li>• ツール紹介</li>
+                                <li>• 今後への期待や構想</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <p class="text-gray-600 mb-4">
+                            あなたのDevin体験を皆と共有してください！初心者から上級者まで、どのレベルの発表も歓迎します。
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="#register" class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition inline-flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                登壇申し込みフォームへ
+                            </a>
+                            <a href="#" class="bg-gray-100 text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition inline-flex items-center justify-center">
+                                <i class="fas fa-question-circle mr-2"></i>
+                                応募要項を確認
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section id="venue" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    開催場所
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    日本最大級のフリマアプリを運営するメルカリの本社オフィスで開催します。
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-building text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">株式会社メルカリ</h3>
+                                <p class="text-gray-600">六本木ヒルズ森タワー</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-semibold text-gray-900">住所</p>
+                                    <p class="text-gray-600">〒106-6118<br>東京都港区六本木6-10-1<br>六本木ヒルズ森タワー 18F</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-train text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-semibold text-gray-900">アクセス</p>
+                                    <ul class="text-gray-600 space-y-1">
+                                        <li>東京メトロ日比谷線「六本木駅」1C出口 徒歩0分</li>
+                                        <li>都営大江戸線「六本木駅」3出口 徒歩4分</li>
+                                        <li>都営大江戸線「麻布十番駅」7出口 徒歩5分</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-info-circle text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-semibold text-gray-900">会場について</p>
+                                    <p class="text-gray-600">メルカリが提供する最先端のオフィス環境で、Devinの技術革新を体験していただけます。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-gray-200 h-96 rounded-2xl flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-map text-gray-400 text-6xl mb-4"></i>
+                            <p class="text-gray-500 text-lg">六本木ヒルズ森タワー</p>
+                            <p class="text-gray-400">Google Maps でのアクセス詳細は<br>当日ご案内いたします</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid md:grid-cols-2 gap-8">
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-blue-600 text-2xl mr-4"></i>
+                        <h3 class="text-xl font-bold text-gray-900">オフライン参加</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">定員200名様限定。直接会場でDevinの技術を体験し、参加者同士のネットワーキングをお楽しみいただけます。</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• ハンズオンワークショップ参加可能</li>
+                        <li>• ランチ・ドリンク提供</li>
+                        <li>• 限定ノベルティプレゼント</li>
+                    </ul>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-video text-purple-600 text-2xl mr-4"></i>
+                        <h3 class="text-xl font-bold text-gray-900">オンライン参加</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">人数制限なし。世界中どこからでもDevinの最新情報とライブデモをご視聴いただけます。</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• HD画質でのライブ配信</li>
+                        <li>• リアルタイムQ&A参加</li>
+                        <li>• 録画視聴可能</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                参加登録
+            </h2>
+            <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
+                AIの未来を体験する貴重な機会です。今すぐ登録して、Devinと共に新しいエンジニアリングの世界を探索しましょう。
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="glass p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-friends text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">オフライン参加</h3>
+                    <p class="text-blue-100 mb-6">定員200名 - 六本木ヒルズにて</p>
+                    <div class="text-white mb-6">
+                        <span class="text-3xl font-bold">無料</span>
+                    </div>
+                    <button class="w-full bg-white text-blue-600 py-3 px-6 rounded-full font-semibold hover:bg-gray-100 transition">
+                        オフライン参加を申し込む
+                    </button>
+                </div>
+                
+                <div class="glass p-8 rounded-2xl">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-laptop text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">オンライン参加</h3>
+                    <p class="text-blue-100 mb-6">人数無制限 - ライブ配信にて</p>
+                    <div class="text-white mb-6">
+                        <span class="text-3xl font-bold">無料</span>
+                    </div>
+                    <button class="w-full bg-white text-purple-600 py-3 px-6 rounded-full font-semibold hover:bg-gray-100 transition">
+                        オンライン参加を申し込む
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bg-white bg-opacity-10 p-6 rounded-2xl">
+                <h3 class="text-xl font-bold text-white mb-4">参加特典</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-blue-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-gift text-yellow-400 mr-2"></i>
+                        <span>限定ノベルティ</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-certificate text-yellow-400 mr-2"></i>
+                        <span>参加証明書</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-download text-yellow-400 mr-2"></i>
+                        <span>資料ダウンロード</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-robot text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">Devin Meetup Tokyo</span>
+                    </div>
+                    <p class="text-gray-400">
+                        AIの未来を体験する特別なイベント。Devinと共に新しいエンジニアリングの世界を探索しましょう。
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">イベント情報</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#about" class="hover:text-white transition">Devinについて</a></li>
+                        <li><a href="#schedule" class="hover:text-white transition">スケジュール</a></li>
+                        <li><a href="#venue" class="hover:text-white transition">開催場所</a></li>
+                        <li><a href="#register" class="hover:text-white transition">参加登録</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">関連リンク</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="https://devin.ai" target="_blank" class="hover:text-white transition">Devin公式サイト</a></li>
+                        <li><a href="https://cognition.ai" target="_blank" class="hover:text-white transition">Cognition Labs</a></li>
+                        <li><a href="https://about.mercari.com" target="_blank" class="hover:text-white transition">株式会社メルカリ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">お問い合わせ</h3>
+                    <div class="space-y-3 text-gray-400">
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            info@devinmeetup.tokyo
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-calendar mr-2"></i>
+                            2025年7月26日（土）
+                        </p>
+                        <div class="flex space-x-4 mt-6">
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-600 transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Devin Meetup Tokyo. All rights reserved. | Made with ❤️ for the AI community</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add random sparkle positions
+        const sparkles = document.querySelectorAll('.sparkle');
+        sparkles.forEach((sparkle, index) => {
+            sparkle.style.animationDelay = `${index * 0.5}s`;
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            const parallaxElements = document.querySelectorAll('.parallax');
+            parallaxElements.forEach(element => {
+                element.style.transform = `translateY(${rate}px)`;
+            });
+        });
+
+        // Dynamic emoji generation
+        function createFloatingEmoji() {
+            const emojis = ['🤖', '💻', '⚡', '🚀', '🔥', '✨', '🎯', '💡', '🧠', '⭐', '🌟', '🎨', '🔮', '💎', '🌈', '🎭', '🔧', '⚙️', '🎪', '🎊', '📱', '💾', '🌐', '🔒', '📊', '🎮', '🎵', '🌸', '🦄', '🎈'];
+            
+            setInterval(() => {
+                const emoji = document.createElement('div');
+                emoji.className = 'floating-emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + '%';
+                emoji.style.top = '100%';
+                emoji.style.animationDelay = '0s';
+                emoji.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                
+                document.querySelector('.hero-bg').appendChild(emoji);
+                
+                // Remove emoji after animation
+                setTimeout(() => {
+                    if (emoji.parentNode) {
+                        emoji.parentNode.removeChild(emoji);
+                    }
+                }, 10000);
+            }, 2000);
+        }
+
+        // Generate code snippets dynamically
+        function createCodeSnippets() {
+            const codeSnippets = [
+                'const ai = new Devin();',
+                'import { magic } from "ai";',
+                'def create_future(): return True',
+                'git push origin future',
+                'npm install intelligence',
+                'docker run -d ai/devin',
+                'SELECT creativity FROM mind',
+                'async function innovate() {}',
+                'while(learning) { grow(); }',
+                'if (ai + human) { amazing(); }'
+            ];
+            
+            setInterval(() => {
+                const snippet = document.createElement('div');
+                snippet.className = 'code-snippet';
+                snippet.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+                snippet.style.left = Math.random() * 100 + '%';
+                snippet.style.top = '100%';
+                snippet.style.animationDelay = '0s';
+                snippet.style.color = `rgba(${Math.random() * 100 + 155}, ${Math.random() * 100 + 155}, 255, 0.3)`;
+                
+                document.querySelector('.hero-bg').appendChild(snippet);
+                
+                // Remove snippet after animation
+                setTimeout(() => {
+                    if (snippet.parentNode) {
+                        snippet.parentNode.removeChild(snippet);
+                    }
+                }, 15000);
+            }, 3000);
+        }
+
+        // Start animations when page loads
+        window.addEventListener('load', () => {
+            createFloatingEmoji();
+            createCodeSnippets();
+        });
+
+        // Registration button handlers
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('申し込む')) {
+                button.addEventListener('click', function() {
+                    alert('参加登録機能は準備中です。詳細は後日お知らせいたします。');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

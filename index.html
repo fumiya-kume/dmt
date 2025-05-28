@@ -871,43 +871,87 @@
 
     <!-- Timeline Section -->
     <section id="timeline" class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             イベントまでのタイムライン
           </h2>
-          <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
             Devin Meetup Tokyo 2025 までの主なスケジュールをご案内します。
           </p>
         </div>
-        <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
-          <!-- CFP Start -->
-          <div class="glass-strong solarium-warm glass-hover warm-glow p-8 rounded-3xl flex-1 border-2 border-yellow-200/50 natural-shadow text-center flex flex-col items-center">
-            <i class="fas fa-bullhorn text-orange-500 text-3xl mb-4"></i>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">CFP募集開始</h3>
-            <div class="text-2xl font-bold text-orange-600 mb-2">2025年5月20日</div>
-            <p class="text-gray-700">登壇者の募集を開始します</p>
-          </div>
-          <!-- CFP End -->
-          <div class="glass-strong solarium-accent glass-hover warm-glow p-8 rounded-3xl flex-1 border-2 border-red-200/50 natural-shadow text-center flex flex-col items-center">
-            <i class="fas fa-calendar-times text-red-500 text-3xl mb-4"></i>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">CFP締切</h3>
-            <div class="text-2xl font-bold text-red-600 mb-2">2025年6月13日 24:00ごろ</div>
-            <p class="text-gray-700">登壇応募の締切日です</p>
-          </div>
-          <!-- Registration Start -->
-          <div class="glass-strong solarium-cool glass-hover warm-glow p-8 rounded-3xl flex-1 border-2 border-blue-200/50 natural-shadow text-center flex flex-col items-center">
-            <i class="fas fa-user-plus text-blue-500 text-3xl mb-4"></i>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">参加登録開始</h3>
-            <div class="text-2xl font-bold text-blue-600 mb-2">2025年6月中旬</div>
-            <p class="text-gray-700">イベント参加登録受付を開始</p>
-          </div>
-          <!-- Event Day -->
-          <div class="glass-strong solarium-accent glass-hover warm-glow p-8 rounded-3xl flex-1 border-2 border-purple-200/50 natural-shadow text-center flex flex-col items-center">
-            <i class="fas fa-calendar-check text-purple-500 text-3xl mb-4"></i>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">イベント当日</h3>
-            <div class="text-2xl font-bold text-purple-600 mb-2">2025年7月26日</div>
-            <p class="text-gray-700">Devin Meetup Tokyo 開催！</p>
+        <div class="relative">
+          <!-- 縦棒（タイムライン全体） -->
+          <div class="absolute left-5 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-400 via-blue-400 to-purple-500 rounded-full" style="z-index:0;"></div>
+          <div class="space-y-20">
+            <!-- 1. CFP募集開始 -->
+            <div class="relative flex items-start">
+              <div class="flex flex-col items-center z-10 pr-4" style="width: 3.5rem;">
+                <div class="w-10 h-10 bg-orange-400 border-4 border-white rounded-full flex items-center justify-center shadow-lg mb-4 p-6">
+                  <i class="fas fa-bullhorn text-white text-2xl"></i>
+                </div>
+              </div>
+              <div class="ml-8 flex-1">
+                <div class="glass-strong solarium-warm glass-hover warm-glow p-8 rounded-2xl border-2 border-yellow-200/50 natural-shadow">
+                  <div class="flex items-center mb-2">
+                    <span class="text-lg font-bold text-orange-600 mr-4">2025年5月20日</span>
+                    <span class="text-gray-900 font-semibold">CFP募集開始</span>
+                  </div>
+                  <p class="text-gray-700">登壇者の募集を開始します</p>
+                </div>
+              </div>
+            </div>
+            <!-- 2. CFP締切 -->
+            <div class="relative flex items-start">
+              <div class="flex flex-col items-center z-10 pr-4" style="width: 3.5rem;">
+                <div class="w-10 h-10 bg-red-500 border-4 border-white rounded-full flex items-center justify-center shadow-lg mb-2 p-6">
+                  <i class="fas fa-calendar-times text-white text-2xl"></i>
+                </div>
+              </div>
+              <div class="ml-8 flex-1">
+                <div class="glass-strong solarium-accent glass-hover warm-glow p-8 rounded-2xl border-2 border-red-200/50 natural-shadow">
+                  <div class="flex items-center mb-2">
+                    <span class="text-lg font-bold text-red-600 mr-4">2025年6月13日 24:00ごろ</span>
+                    <span class="text-gray-900 font-semibold">CFP締切</span>
+                  </div>
+                  <p class="text-gray-700">登壇応募の締切日です</p>
+                </div>
+              </div>
+            </div>
+            <!-- 3. 参加登録開始 -->
+            <div class="relative flex items-start">
+              <div class="flex flex-col items-center z-10 pr-4" style="width: 3.5rem;">
+                <div class="w-10 h-10 bg-blue-500 border-4 border-white rounded-full flex items-center justify-center shadow-lg mb-2 p-6">
+                  <i class="fas fa-user-plus text-white text-2xl"></i>
+                </div>
+              </div>
+              <div class="ml-8 flex-1">
+                <div class="glass-strong solarium-cool glass-hover warm-glow p-8 rounded-2xl border-2 border-blue-200/50 natural-shadow">
+                  <div class="flex items-center mb-2">
+                    <span class="text-lg font-bold text-blue-600 mr-4">2025年6月中旬</span>
+                    <span class="text-gray-900 font-semibold">参加登録開始</span>
+                  </div>
+                  <p class="text-gray-700">イベント参加登録受付を開始</p>
+                </div>
+              </div>
+            </div>
+            <!-- 4. イベント当日 -->
+            <div class="relative flex items-start">
+              <div class="flex flex-col items-center z-10 pr-4" style="width: 3.5rem;">
+                <div class="w-10 h-10 bg-purple-500 border-4 border-white rounded-full flex items-center justify-center shadow-lg mb-2 p-6">
+                  <i class="fas fa-calendar-check text-white text-2xl"></i>
+                </div>
+              </div>
+              <div class="ml-8 flex-1">
+                <div class="glass-strong solarium-accent glass-hover warm-glow p-8 rounded-2xl border-2 border-purple-200/50 natural-shadow">
+                  <div class="flex items-center mb-2">
+                    <span class="text-lg font-bold text-purple-600 mr-4">2025年7月26日</span>
+                    <span class="text-gray-900 font-semibold">イベント当日</span>
+                  </div>
+                  <p class="text-gray-700">Devin Meetup Tokyo 開催！</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

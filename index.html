@@ -30,17 +30,41 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            opacity: 0.1;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            color: #00ff41;
-            line-height: 1.2;
-            animation: matrix 20s linear infinite;
+            opacity: 0.75;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.6;
         }
         
-        @keyframes matrix {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
+        .code-snippet-item {
+            position: absolute;
+            animation: popAndFlow 6s ease-out infinite;
+            opacity: 0;
+            transform-origin: center;
+        }
+        
+        @keyframes popAndFlow {
+            0% { 
+                opacity: 0.3; 
+                transform: scale(0.5) translateY(0px);
+            }
+            10% { 
+                opacity: 0.95; 
+                transform: scale(1.2) translateY(-5px);
+            }
+            20% { 
+                opacity: 1; 
+                transform: scale(1) translateY(-10px);
+            }
+            70% { 
+                opacity: 0.9; 
+                transform: scale(0.95) translateY(-40px);
+            }
+            100% { 
+                opacity: 0; 
+                transform: scale(0.7) translateY(-80px);
+            }
         }
         
         .floating-emoji {
@@ -626,70 +650,27 @@
         <div class="absolute inset-0 bg-gradient-to-tl from-yellow-300/5 via-transparent to-purple-400/5"></div>
         
         <!-- Code Rain Background -->
-        <div class="code-rain">
-            <div style="position: absolute; left: 5%; animation-delay: 0s;">
-                def create_ai():<br>
-                &nbsp;&nbsp;intelligence = True<br>
-                &nbsp;&nbsp;creativity = ∞<br>
-                &nbsp;&nbsp;return Devin()<br>
+        <div class="code-rain" id="codeRain">
+            <!-- 初期表示用のコードスニペット -->
+            <div class="code-snippet-item" style="left: 15%; top: 20%; color: #ff6b9d; animation-delay: 0s;">
+                print("Hello Devin! 👋")
             </div>
-            <div style="position: absolute; left: 15%; animation-delay: 3s;">
-                import future<br>
-                from ai import devin<br>
-                devin.code_with_human()<br>
-                # Amazing results!<br>
+            <div class="code-snippet-item" style="left: 65%; top: 35%; color: #4ecdc4; animation-delay: 0.5s;">
+                devin.help() 🤖
             </div>
-            <div style="position: absolute; left: 25%; animation-delay: 6s;">
-                class AIEngineer:<br>
-                &nbsp;&nbsp;def __init__(self):<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;self.name = "Devin"<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;self.skills = ["∞"]<br>
+            <div class="code-snippet-item" style="left: 30%; top: 60%; color: #45b7d1; animation-delay: 1s;">
+                AI + Human = 💕
             </div>
-            <div style="position: absolute; left: 35%; animation-delay: 9s;">
-                console.log("Hello AI!");<br>
-                const devin = new AI();<br>
-                devin.collaborate();<br>
-                // Future is here 🚀<br>
+            <div class="code-snippet-item" style="left: 80%; top: 15%; color: #96ceb4; animation-delay: 1.5s;">
+                const ai = "awesome" 🚀
             </div>
-            <div style="position: absolute; left: 45%; animation-delay: 12s;">
-                git commit -m "AI magic"<br>
-                npm run build<br>
-                docker deploy future<br>
-                echo "Success! 🎉"<br>
+            <div class="code-snippet-item" style="left: 45%; top: 75%; color: #ffeaa7; animation-delay: 2s;">
+                return success! 🎉
             </div>
-            <div style="position: absolute; left: 55%; animation-delay: 15s;">
-                async function aiCode() {<br>
-                &nbsp;&nbsp;const result = await<br>
-                &nbsp;&nbsp;devin.createApp();<br>
-                &nbsp;&nbsp;return "✨ Magic ✨";<br>
-                }<br>
+            <div class="code-snippet-item" style="left: 10%; top: 50%; color: #fd79a8; animation-delay: 2.5s;">
+                git add fun 🎉
             </div>
-            <div style="position: absolute; left: 65%; animation-delay: 18s;">
-                SELECT * FROM ideas<br>
-                WHERE innovation = true<br>
-                AND future_ready = 1<br>
-                ORDER BY awesome DESC;<br>
-            </div>
-            <div style="position: absolute; left: 75%; animation-delay: 1s;">
-                if (human + ai === true) {<br>
-                &nbsp;&nbsp;world.change();<br>
-                &nbsp;&nbsp;future.arrive();<br>
-                &nbsp;&nbsp;dreams.become(reality);<br>
-                }<br>
-            </div>
-            <div style="position: absolute; left: 85%; animation-delay: 4s;">
-                package main<br>
-                func main() {<br>
-                &nbsp;&nbsp;ai := NewDevin()<br>
-                &nbsp;&nbsp;ai.Code("🚀")<br>
-                }<br>
-            </div>
-            <div style="position: absolute; left: 95%; animation-delay: 7s;">
-                curl -X POST ai.future<br>
-                -H "Content: innovation"<br>
-                -d '{"tool": "devin"}'<br>
-                # 200 OK: Success! 💫<br>
-            </div>
+            <!-- 動的に生成されるコードスニペットはここに追加される -->
         </div>
         
         <!-- Floating Emojis -->
@@ -1459,45 +1440,76 @@
             }, 2000);
         }
 
-        // Generate code snippets dynamically
-        function createCodeSnippets() {
+        // Generate code snippets with random pop-in effect
+        function createRandomCodeSnippets() {
             const codeSnippets = [
-                'const ai = new Devin();',
-                'import { magic } from "ai";',
-                'def create_future(): return True',
-                'git push origin future',
-                'npm install intelligence',
-                'docker run -d ai/devin',
-                'SELECT creativity FROM mind',
-                'async function innovate() {}',
-                'while(learning) { grow(); }',
-                'if (ai + human) { amazing(); }'
+                'print("Hello Devin! 👋")',
+                'love = "coding" ❤️',
+                'devin.help() 🤖',
+                '// Magic happens! ✨',
+                'const ai = "awesome" 🚀',
+                'future.isNow() 💫',
+                'git add happiness 😊',
+                'npm install dreams 🌟',
+                'AI + Human = 💕',
+                'return success! 🎉',
+                'function smile() { return "😄" }',
+                'devin.create() 🎨',
+                '// Innovation! 💡',
+                'while (learning) { grow() 🌱 }',
+                'echo "Amazing!" 🌈',
+                'deploy.now() 🚀',
+                'devin.smile() 😊',
+                'console.log("Hi! 👋")',
+                'git add fun 🎉',
+                'npm run magic ✨',
+                'ai.help() 🤖',
+                'return happy 🌈',
+                'build.awesome() 🚀',
+                'create.dreams() 💫',
+                'code.with.joy() 😄'
             ];
+            
+            const colors = ['#ff6b9d', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#fd79a8', '#6c5ce7', '#ff9ff3', '#74b9ff'];
             
             setInterval(() => {
                 const snippet = document.createElement('div');
-                snippet.className = 'code-snippet';
+                snippet.className = 'code-snippet-item';
                 snippet.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-                snippet.style.left = Math.random() * 100 + '%';
-                snippet.style.top = '100%';
-                snippet.style.animationDelay = '0s';
-                snippet.style.color = `rgba(${Math.random() * 100 + 155}, ${Math.random() * 100 + 155}, 255, 0.3)`;
                 
-                document.querySelector('.hero-bg').appendChild(snippet);
+                // ランダムな位置
+                snippet.style.left = Math.random() * 85 + 5 + '%';
+                snippet.style.top = Math.random() * 80 + 10 + '%';
                 
-                // Remove snippet after animation
+                // ランダムな色
+                snippet.style.color = colors[Math.floor(Math.random() * colors.length)];
+                snippet.style.fontSize = '18px';
+                snippet.style.fontWeight = '600';
+                
+                // ランダムなアニメーション遅延
+                snippet.style.animationDelay = Math.random() * 1 + 's';
+                snippet.style.animationDuration = (Math.random() * 2 + 5) + 's';
+                
+                document.getElementById('codeRain').appendChild(snippet);
+                
+                // アニメーション完了後に削除
                 setTimeout(() => {
                     if (snippet.parentNode) {
                         snippet.parentNode.removeChild(snippet);
                     }
-                }, 15000);
-            }, 3000);
+                }, 8000);
+            }, Math.random() * 2500 + 1500); // 1.5-4秒のランダム間隔
         }
 
         // Start animations when page loads
         window.addEventListener('load', () => {
             createFloatingEmoji();
-            createCodeSnippets();
+            createRandomCodeSnippets();
+        });
+
+        // Start code snippets immediately when DOM is ready (before images load)
+        document.addEventListener('DOMContentLoaded', () => {
+            createRandomCodeSnippets();
         });
 
         // Registration button handlers

@@ -772,7 +772,42 @@
                         </div>
                         <div class="glass solarium-accent flex items-center text-gray-900 px-6 py-4 rounded-full border border-white/30 natural-shadow">
                             <i class="fas fa-users text-purple-600 mr-3 text-xl"></i>
-                            <span class="text-lg font-semibold">200名 + オンライン♾️</span>
+                            <span class="text-lg font-semibold">200名 + オンライン
+                              <span class="inline-block align-middle ml-1" style="width: 1.6em; height: 1em; vertical-align: -0.1em;">
+                                <svg viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <defs>
+                                    <linearGradient id="ai-infinity" x1="0" y1="16" x2="64" y2="16" gradientUnits="userSpaceOnUse">
+                                      <stop stop-color="#00F0FF"/>
+                                      <stop offset="0.5" stop-color="#A259FF"/>
+                                      <stop offset="1" stop-color="#FF5CFF"/>
+                                    </linearGradient>
+                                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                      <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                      </feMerge>
+                                    </filter>
+                                  </defs>
+                                  <path
+                                    d="M16,16 C16,8 32,8 32,16 C32,24 48,24 48,16 C48,8 32,8 32,16"
+                                    stroke="url(#ai-infinity)"
+                                    stroke-width="5"
+                                    stroke-linecap="round"
+                                    fill="none"
+                                    filter="url(#glow)"
+                                  />
+                                  <path
+                                    d="M16,16 C16,24 32,24 32,16 C32,8 48,8 48,16 C48,24 32,24 32,16"
+                                    stroke="url(#ai-infinity)"
+                                    stroke-width="5"
+                                    stroke-linecap="round"
+                                    fill="none"
+                                    filter="url(#glow)"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
                         </div>
                     </div>
                     
@@ -791,7 +826,7 @@
     </section>
 
     <!-- About Devin Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-white scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -870,7 +905,7 @@
     </section>
 
     <!-- Timeline Section -->
-    <section id="timeline" class="py-20 bg-white">
+    <section id="timeline" class="py-20 bg-white scroll-mt-24">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -960,7 +995,7 @@
     </section>
 
     <!-- Schedule Section -->
-    <section id="schedule" class="py-20 bg-gray-50">
+    <section id="schedule" class="py-20 bg-gray-50 scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -1329,7 +1364,7 @@
     </section>
 
     <!-- Venue Section -->
-    <section id="venue" class="py-20 bg-white">
+    <section id="venue" class="py-20 bg-white scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -1424,7 +1459,7 @@
     </section>
 
     <!-- Registration Section -->
-    <section id="register" class="py-20 gradient-bg">
+    <section id="register" class="py-20 gradient-bg scroll-mt-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
                 参加登録

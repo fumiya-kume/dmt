@@ -177,6 +177,17 @@
             position: relative;
             overflow: hidden;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            min-height: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .apple-btn {
+                padding: 18px 32px;
+                font-size: 18px;
+                min-height: 56px;
+                width: 100%;
+                max-width: 100%;
+            }
         }
         
         .apple-btn::before {
@@ -230,6 +241,17 @@
             overflow: hidden;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            min-height: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .apple-btn-secondary {
+                padding: 18px 32px;
+                font-size: 18px;
+                min-height: 56px;
+                width: 100%;
+                max-width: 100%;
+            }
         }
         
         .apple-btn-secondary::before {
@@ -640,6 +662,374 @@
                 filter: blur(0px);
             }
         }
+        
+        /* Mobile Touch Optimizations */
+        @media (max-width: 768px) {
+            .schedule-item {
+                padding: 20px 16px;
+                margin: 8px 0;
+                min-height: 60px;
+            }
+            
+            .time-badge {
+                padding: 8px 12px;
+                font-size: 14px;
+                min-height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .icon-bounce {
+                font-size: 20px;
+                margin-right: 12px;
+            }
+            
+            .chevron-icon {
+                font-size: 18px;
+                padding: 8px;
+            }
+            
+            /* CFP buttons mobile optimization */
+            .glass-strong:has(a[href*="forms.gle"]) a {
+                padding: 16px 24px;
+                min-height: 56px;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Social media links */
+            .fab {
+                padding: 8px;
+            }
+            
+            /* Better tap targets for navigation links */
+            .mobile-nav-link {
+                min-height: 56px;
+                display: flex;
+                align-items: center;
+                padding: 16px 24px;
+            }
+            
+            /* Hero section buttons */
+            .hero-bg .apple-btn {
+                font-size: 16px;
+                padding: 16px 24px;
+                min-height: 56px;
+            }
+            
+            /* Registration section buttons */
+            #register button {
+                min-height: 56px;
+                padding: 16px 24px;
+                font-size: 16px;
+            }
+            
+            /* Typography improvements for mobile */
+            h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            h2 {
+                font-size: 2rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 1.25rem !important;
+            }
+            
+            h3 {
+                font-size: 1.5rem !important;
+                line-height: 1.4 !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            h4 {
+                font-size: 1.25rem !important;
+                line-height: 1.4 !important;
+            }
+            
+            p {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .text-xl {
+                font-size: 1.125rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            .text-2xl {
+                font-size: 1.25rem !important;
+                line-height: 1.4 !important;
+            }
+            
+            .text-3xl {
+                font-size: 1.5rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            .text-4xl {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .text-5xl {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            /* Hero section text adjustments */
+            .hero-bg h1 {
+                font-size: 2.25rem !important;
+                line-height: 1.2 !important;
+                padding: 0 1rem;
+            }
+            
+            .hero-bg .text-xl {
+                font-size: 1rem !important;
+                line-height: 1.5 !important;
+                padding: 0 1rem;
+            }
+            
+            /* Schedule section readability */
+            .schedule-item .font-bold {
+                font-size: 1.125rem !important;
+                line-height: 1.4 !important;
+            }
+            
+            .schedule-item .text-sm {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* Better spacing for cards */
+            .glass-strong, .glass {
+                padding: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            /* Timeline section mobile improvements */
+            #timeline .text-lg {
+                font-size: 1rem !important;
+            }
+            
+            #timeline .text-gray-700 {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* Performance optimizations for mobile */
+            /* Reduce floating emoji density */
+            .floating-emoji {
+                animation-duration: 12s !important;
+                opacity: 0.6 !important;
+            }
+            
+            /* Simplify code rain animation */
+            .code-snippet-item {
+                animation-duration: 10s !important;
+                opacity: 0.4 !important;
+            }
+            
+            /* Reduce AI particle effects */
+            .ai-particle {
+                animation-duration: 4s !important;
+                opacity: 0.5 !important;
+            }
+            
+            /* Disable parallax on mobile for better performance */
+            .parallax {
+                transform: none !important;
+            }
+            
+            /* Simplify complex hover effects */
+            .card-hover:hover {
+                transform: translateY(-4px) !important;
+            }
+            
+            .glass-hover:hover {
+                transform: translateY(-2px) scale(1.01) !important;
+            }
+            
+            /* Reduce sparkle effects */
+            .sparkle {
+                display: none;
+            }
+            
+            /* Optimize backdrop blur for mobile browsers */
+            .glass, .glass-strong {
+                backdrop-filter: blur(10px) !important;
+                -webkit-backdrop-filter: blur(10px) !important;
+            }
+            
+            /* Disable complex gradient animations */
+            .warm-glow::before {
+                display: none;
+            }
+            
+            /* Reduce animation complexity for schedule items */
+            .schedule-item::before {
+                display: none;
+            }
+            
+            /* Simpler button hover effects */
+            .apple-btn:hover, .apple-btn-secondary:hover {
+                transform: translateY(-2px) scale(1.01) !important;
+            }
+            
+            /* Schedule section mobile improvements */
+            .schedule-item {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                text-align: left !important;
+                padding: 16px !important;
+            }
+            
+            .schedule-item .w-36 {
+                width: 100% !important;
+                text-align: left !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .schedule-item .flex-1 {
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+            
+            .schedule-item .ml-8 {
+                margin-left: 0 !important;
+            }
+            
+            .schedule-detail {
+                margin-left: 0 !important;
+                margin-top: 12px !important;
+                padding: 12px !important;
+            }
+            
+            /* Better mobile layout for schedule grid */
+            .schedule-detail .grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+            
+            /* Timeline section mobile layout */
+            #timeline .relative.flex {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+            }
+            
+            #timeline .flex.flex-col {
+                margin-bottom: 16px !important;
+                padding-right: 0 !important;
+            }
+            
+            #timeline .ml-8 {
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+            
+            /* CFP section mobile layout */
+            .grid.md\\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+            
+            /* Better button layout on mobile */
+            .flex.flex-col.sm\\:flex-row {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+            
+            /* Venue section mobile improvements */
+            #venue .grid.md\\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+            
+            /* Registration section mobile layout */
+            #register .grid.md\\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+            
+            /* Mobile form and button improvements */
+            /* Hero section CTA buttons */
+            .hero-bg .flex.flex-col.sm\\:flex-row {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                width: 100% !important;
+                padding: 0 16px !important;
+            }
+            
+            .hero-bg .apple-btn {
+                width: 100% !important;
+                max-width: none !important;
+                min-width: auto !important;
+            }
+            
+            /* Registration form buttons */
+            #register .glass-strong button {
+                width: 100% !important;
+                text-align: center !important;
+                justify-content: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            /* CFP form buttons improvements */
+            a[href*="forms.gle"] {
+                width: 100% !important;
+                text-align: center !important;
+                padding: 16px 20px !important;
+                margin: 8px 0 !important;
+                display: block !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Footer form improvements */
+            footer .flex.space-x-4 {
+                flex-direction: column !important;
+                space-x-0: 0 !important;
+                gap: 12px !important;
+            }
+            
+            footer .w-10.h-10 {
+                width: 48px !important;
+                height: 48px !important;
+                min-width: 48px !important;
+                min-height: 48px !important;
+            }
+            
+            /* Better spacing for mobile forms */
+            .glass-strong, .glass {
+                margin: 12px 8px !important;
+            }
+            
+            /* Timeline form buttons */
+            #timeline a[href*="forms.gle"] {
+                width: 100% !important;
+                margin: 8px 0 !important;
+                padding: 14px 20px !important;
+            }
+            
+            /* Mobile-specific improvements for touch interaction */
+            button, a[role="button"], .apple-btn, .apple-btn-secondary {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+                touch-action: manipulation;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            
+            /* Prevent zoom on input focus for iOS */
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -731,9 +1121,37 @@
                     </div>
                     <!-- Mobile menu button -->
                     <div class="md:hidden">
-                        <button class="glass solarium-warm p-3 rounded-full border border-white/30">
-                            <i class="fas fa-bars text-gray-700"></i>
+                        <button id="mobile-menu-button" class="glass solarium-warm p-3 rounded-full border border-white/30 relative z-50 transition-all duration-300">
+                            <i id="mobile-menu-icon" class="fas fa-bars text-gray-700 transition-transform duration-300"></i>
                         </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile Navigation Menu -->
+                <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 opacity-0 invisible transition-all duration-300">
+                    <div class="glass-strong solarium-accent fixed right-0 top-0 h-full w-80 max-w-[80vw] p-6 pt-20 transform translate-x-full transition-transform duration-300">
+                        <nav class="space-y-6">
+                            <a href="#about" class="mobile-nav-link block glass solarium-warm px-6 py-4 rounded-2xl text-gray-800 font-semibold text-lg border border-white/30 hover:scale-105 transition-all duration-300">
+                                <i class="fas fa-info-circle mr-3 text-orange-600"></i>About
+                            </a>
+                            <a href="#schedule" class="mobile-nav-link block glass solarium-cool px-6 py-4 rounded-2xl text-gray-800 font-semibold text-lg border border-white/30 hover:scale-105 transition-all duration-300">
+                                <i class="fas fa-calendar mr-3 text-blue-600"></i>Schedule
+                            </a>
+                            <a href="#venue" class="mobile-nav-link block glass solarium-accent px-6 py-4 rounded-2xl text-gray-800 font-semibold text-lg border border-white/30 hover:scale-105 transition-all duration-300">
+                                <i class="fas fa-map-marker-alt mr-3 text-purple-600"></i>Venue
+                            </a>
+                            <a href="#register" class="mobile-nav-link block glass solarium-warm px-6 py-4 rounded-2xl text-gray-800 font-semibold text-lg border border-white/30 hover:scale-105 transition-all duration-300">
+                                <i class="fas fa-rocket mr-3 text-green-600"></i>Register
+                            </a>
+                        </nav>
+                        
+                        <!-- CFP Link for Mobile -->
+                        <div class="mt-8 pt-8 border-t border-white/20">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdUFdrd5y2m4D0YQ8QgyxfnsNcs9zPdBkgWfeIO_0WWbMfEhQ/viewform?usp=dialog" target="_blank" rel="noopener" class="block glass bg-gradient-to-r from-orange-400/80 to-red-400/80 text-white px-6 py-4 rounded-2xl font-semibold text-center border border-orange-300/50 hover:scale-105 transition-all duration-300">
+                                <i class="fas fa-microphone mr-2"></i>
+                                CFP応募フォーム
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1732,6 +2150,64 @@
 
         // Animate badges every 12 seconds with Apple-style timing
         setInterval(animateTimeBadges, 12000);
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        let isMenuOpen = false;
+
+        function toggleMobileMenu() {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                // Open menu
+                mobileMenu.classList.remove('opacity-0', 'invisible');
+                mobileMenu.querySelector('div').classList.remove('translate-x-full');
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Close menu
+                mobileMenu.classList.add('opacity-0', 'invisible');
+                mobileMenu.querySelector('div').classList.add('translate-x-full');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Mobile menu button click handler
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+        // Close menu when clicking on backdrop
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Close menu when clicking nav links
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(toggleMobileMenu, 100); // Small delay for smooth transition
+            });
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && isMenuOpen) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Handle resize events to close menu if screen becomes large
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768 && isMenuOpen) {
+                toggleMobileMenu();
+            }
+        });
     </script>
 </body>
 </html> 

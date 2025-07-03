@@ -14,7 +14,7 @@
         }
         
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
         }
         
         .hero-bg {
@@ -72,7 +72,7 @@
             pointer-events: none;
             font-size: 2rem;
             animation: float-random 8s ease-in-out infinite;
-            opacity: 0.8;
+            opacity: 0.4;
         }
         
         @keyframes float-random {
@@ -124,7 +124,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: linear-gradient(45deg, #00ff88, #00ccff);
+            background: linear-gradient(45deg, #718096, #4a5568);
             border-radius: 50%;
             pointer-events: none;
             animation: ai-pulse 3s ease-in-out infinite;
@@ -151,18 +151,18 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
             transition: all 0.3s ease;
         }
         
         .btn-primary:hover {
-            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         .apple-btn {
-            background: linear-gradient(135deg, #007AFF 0%, #0051D5 100%);
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
             color: white;
             padding: 20px 40px;
             border-radius: 50px;
@@ -170,9 +170,9 @@
             font-weight: 700;
             border: none;
             box-shadow: 
-                0 8px 32px rgba(0, 122, 255, 0.4),
-                0 4px 16px rgba(0, 122, 255, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                0 4px 16px rgba(74, 85, 104, 0.3),
+                0 2px 8px rgba(74, 85, 104, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
             overflow: hidden;
@@ -207,12 +207,12 @@
         }
         
         .apple-btn:hover {
-            background: linear-gradient(135deg, #0056D6 0%, #003D99 100%);
-            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            transform: translateY(-2px) scale(1.01);
             box-shadow: 
-                0 12px 48px rgba(0, 122, 255, 0.5),
-                0 6px 24px rgba(0, 122, 255, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                0 6px 24px rgba(74, 85, 104, 0.4),
+                0 3px 12px rgba(74, 85, 104, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
         
         .apple-btn:hover::before {
@@ -324,8 +324,8 @@
             -webkit-backdrop-filter: blur(24px) saturate(200%);
             background: linear-gradient(
                 135deg,
-                rgba(255, 255, 255, 0.25) 0%,
-                rgba(255, 255, 255, 0.1) 100%
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.05) 100%
             );
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 
@@ -420,10 +420,10 @@
             bottom: -2px;
             background: linear-gradient(
                 45deg,
-                rgba(255, 140, 60, 0.3),
-                rgba(255, 180, 120, 0.2),
-                rgba(255, 215, 160, 0.1),
-                rgba(255, 140, 60, 0.3)
+                rgba(160, 174, 192, 0.2),
+                rgba(160, 174, 192, 0.1),
+                rgba(160, 174, 192, 0.05),
+                rgba(160, 174, 192, 0.2)
             );
             border-radius: inherit;
             z-index: -1;
@@ -1096,12 +1096,12 @@
         <div class="ai-particle" style="top: 70%; left: 50%; animation-delay: 1.2s;"></div>
         
         <div class="absolute inset-0">
-            <div class="sparkle top-20 left-20 animation-delay-0" style="background: linear-gradient(45deg, #fbbf24, #f59e0b);"></div>
-            <div class="sparkle top-40 right-32 animation-delay-1000" style="background: linear-gradient(45deg, #3b82f6, #1d4ed8);"></div>
-            <div class="sparkle top-60 left-1/3 animation-delay-2000" style="background: linear-gradient(45deg, #f59e0b, #d97706);"></div>
-            <div class="sparkle bottom-40 right-20 animation-delay-3000" style="background: linear-gradient(45deg, #8b5cf6, #7c3aed);"></div>
-            <div class="sparkle top-32 left-1/2 animation-delay-1500" style="background: linear-gradient(45deg, #06b6d4, #0891b2);"></div>
-            <div class="sparkle bottom-32 left-20 animation-delay-2500" style="background: linear-gradient(45deg, #ec4899, #db2777);"></div>
+            <div class="sparkle top-20 left-20 animation-delay-0" style="background: linear-gradient(45deg, #a0aec0, #718096);"></div>
+            <div class="sparkle top-40 right-32 animation-delay-1000" style="background: linear-gradient(45deg, #718096, #4a5568);"></div>
+            <div class="sparkle top-60 left-1/3 animation-delay-2000" style="background: linear-gradient(45deg, #a0aec0, #718096);"></div>
+            <div class="sparkle bottom-40 right-20 animation-delay-3000" style="background: linear-gradient(45deg, #718096, #4a5568);"></div>
+            <div class="sparkle top-32 left-1/2 animation-delay-1500" style="background: linear-gradient(45deg, #a0aec0, #718096);"></div>
+            <div class="sparkle bottom-32 left-20 animation-delay-2500" style="background: linear-gradient(45deg, #718096, #4a5568);"></div>
         </div>
         
         <nav class="glass-strong solarium-accent fixed w-full top-0 z-50 py-4 border-b border-white/20 natural-shadow">
@@ -2210,4 +2210,4 @@
         });
     </script>
 </body>
-</html>        
+</html>                

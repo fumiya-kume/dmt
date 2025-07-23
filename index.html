@@ -1555,7 +1555,7 @@
                     <div class="divide-y divide-white/10">
                         <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('reception')">
                             <div class="w-36 text-right">
-                                <span class="time-badge text-sm font-bold text-blue-700 bg-blue-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">09:00 - 09:30</span>
+                                <span class="time-badge text-sm font-bold text-blue-700 bg-blue-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">10:30 - 11:00</span>
                             </div>
                             <div class="flex-1 ml-8">
                                 <div class="flex items-center justify-between">
@@ -1570,7 +1570,7 @@
                                     <div class="detail-content">
                                         <h4 class="font-bold text-gray-900 mb-2">詳細情報</h4>
                                         <ul class="text-sm text-gray-700 space-y-1">
-                                            <li>• 受付は9:00より開始いたします</li>
+                                            <li>• 受付は10:30より開始いたします</li>
                                             <li>• ウェルカムドリンク（コーヒー・お茶）をご用意</li>
                                             <li>• 参加者同士の自由なネットワーキング時間</li>
                                         </ul>
@@ -1581,22 +1581,22 @@
                         
                         <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('keynote')">
                             <div class="w-36 text-right">
-                                <span class="time-badge text-sm font-bold text-purple-700 bg-purple-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">09:30 - 10:10</span>
+                                <span class="time-badge text-sm font-bold text-purple-700 bg-purple-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">11:15 - 12:30</span>
                             </div>
                             <div class="flex-1 ml-8">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                         <i class="icon-bounce fas fa-microphone text-purple-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
-                                        <span class="font-bold text-gray-900 text-lg">Opening & Keynote</span>
+                                        <span class="font-bold text-gray-900 text-lg">Keynote by Walden Yan (Co-Founder, Cognition)</span>
                                     </div>
                                     <i class="chevron-icon fas fa-chevron-down text-gray-400 transition-transform group-hover:text-purple-600" id="arrow-keynote"></i>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-2 ml-8">Devin's State of the Union（40分）</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">Devin's State of the Union（75分）</p>
                                 <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-cool rounded-2xl border border-purple-200/50" id="detail-keynote">
                                     <div class="detail-content">
                                         <h4 class="font-bold text-gray-900 mb-2">キーノート詳細</h4>
                                         <ul class="text-sm text-gray-700 space-y-1">
-                                            <li>• 講演者・内容は現在調整中です</li>
+                                            <li>• 講演者：Walden Yan (Co-Founder, Cognition)</li>
                                             <li>• Devinの技術的進歩と最新機能</li>
                                             <li>• AIソフトウェアエンジニアの未来像</li>
                                             <li>• 実際の開発現場での活用事例</li>
@@ -1607,30 +1607,24 @@
                             </div>
                         </div>
                         
-                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session12')">
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session1')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-green-700 bg-green-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">10:25 - 12:05</span>
+                                <span class="text-sm font-bold text-green-700 bg-green-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">12:45 - 13:30</span>
                             </div>
                             <div class="flex-1 ml-8">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                         <i class="fas fa-users text-green-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
-                                        <span class="font-bold text-gray-900 text-lg">Session 1 & 2</span>
+                                        <span class="font-bold text-gray-900 text-lg">Session 1</span>
                                     </div>
-                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-green-600" id="arrow-session12"></i>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-green-600" id="arrow-session1"></i>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-2 ml-8">Devinの活用事例や技術解説（各40分）</p>
-                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-accent rounded-2xl border border-green-200/50" id="detail-session12">
+                                <p class="text-sm text-gray-600 mt-2 ml-8">少人数でも回る！DevinとPlaybookで支える運用改善（45分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-accent rounded-2xl border border-green-200/50" id="detail-session1">
                                     <h4 class="font-bold text-gray-900 mb-2">セッション内容</h4>
-                                    <div class="grid md:grid-cols-2 gap-4">
-                                        <div class="p-3 bg-white/20 rounded-xl">
-                                            <h5 class="font-semibold text-gray-900">Session 1 (10:25-11:05)</h5>
-                                            <p class="text-sm text-gray-700">少人数でも回る！DevinとPlaybookで支える運用改善</p>
-                                        </div>
-                                        <div class="p-3 bg-white/20 rounded-xl">
-                                            <h5 class="font-semibold text-gray-900">Session 2 (11:20-12:00)</h5>
-                                            <p class="text-sm text-gray-700">マルチテナントSaaSでのRLS導入に際し、並列でDevinを動かし高い品質のコードをパワフルにプロダクションへ反映させた事例</p>
-                                        </div>
+                                    <div class="p-3 bg-white/20 rounded-xl">
+                                        <h5 class="font-semibold text-gray-900">Session 1 (12:45-13:30)</h5>
+                                        <p class="text-sm text-gray-700">少人数でも回る！DevinとPlaybookで支える運用改善</p>
                                     </div>
                                 </div>
                             </div>
@@ -1638,7 +1632,7 @@
                         
                         <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('lunch')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-orange-700 bg-orange-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">12:05 - 13:05</span>
+                                <span class="text-sm font-bold text-orange-700 bg-orange-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">13:30 - 14:30</span>
                             </div>
                             <div class="flex-1 ml-8">
                                 <div class="flex items-center justify-between">
@@ -1648,11 +1642,11 @@
                                     </div>
                                     <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-orange-600" id="arrow-lunch"></i>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-2 ml-8">参加者同士での情報交換とネットワーキング</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">弁当配布、参加者同士での情報交換とネットワーキング</p>
                                 <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-warm rounded-2xl border border-orange-200/50" id="detail-lunch">
                                     <h4 class="font-bold text-gray-900 mb-2">ランチ詳細</h4>
                                     <ul class="text-sm text-gray-700 space-y-1">
-                                        <li>• メルカリオフィス周辺のレストランをご利用ください</li>
+                                        <li>• 弁当配布を行います</li>
                                         <li>• 各テーブルでテーマ別ディスカッション</li>
                                         <li>• 参加者同士の自由な情報交換</li>
                                         <li>• Devin関連書籍の展示・販売</li>
@@ -1661,38 +1655,162 @@
                             </div>
                         </div>
                         
-                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session36')">
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session2')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-red-700 bg-red-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">13:05 - 16:25</span>
+                                <span class="text-sm font-bold text-red-700 bg-red-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">14:30 - 15:15</span>
                             </div>
                             <div class="flex-1 ml-8">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
-                                        <i class="fas fa-users text-green-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
-                                        <span class="font-bold text-gray-900 text-lg">Session 3-6</span>
+                                        <i class="fas fa-users text-red-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Session 2</span>
                                     </div>
-                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-red-600" id="arrow-session36"></i>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-red-600" id="arrow-session2"></i>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-2 ml-8">午後の登壇セッション（各40分）</p>
-                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-cool rounded-2xl border border-red-200/50" id="detail-session36">
-                                    <h4 class="font-bold text-gray-900 mb-3">午後セッション詳細</h4>
-                                    <div class="grid md:grid-cols-2 gap-3">
-                                        <div class="p-3 bg-white/20 rounded-xl">
-                                            <h5 class="font-semibold text-gray-900 text-sm">Session 3 (13:05-13:45)</h5>
-                                            <p class="text-xs text-gray-700">CFP結果により決定</p>
-                                        </div>
-                                        <div class="p-3 bg-white/20 rounded-xl">
-                                            <h5 class="font-semibold text-gray-900 text-sm">Session 4 (14:00-14:40)</h5>
-                                            <p class="text-xs text-gray-700">Devinで変えるエンプラシステム開発の未来</p>
-                                        </div>
-                                        <div class="p-3 bg-white/20 rounded-xl">
-                                            <h5 class="font-semibold text-gray-900 text-sm">Session 5 (14:50-15:30)</h5>
-                                            <p class="text-xs text-gray-700">Devin DeepDive</p>
-                                        </div>
-                                        <div class="p-3 bg-white/20 rounded-xl">
-                                            <h5 class="font-semibold text-gray-900 text-sm">Session 6 (15:45-16:25)</h5>
-                                            <p class="text-xs text-gray-700">運用して初めてわかったDevinのセキュリティ課題</p>
-                                        </div>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">マルチテナントSaaSでのRLS導入に際し、並列でDevinを動かし高い品質のコードをパワフルにプロダクションへ反映させた事例（45分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-cool rounded-2xl border border-red-200/50" id="detail-session2">
+                                    <h4 class="font-bold text-gray-900 mb-2">セッション内容</h4>
+                                    <div class="p-3 bg-white/20 rounded-xl">
+                                        <h5 class="font-semibold text-gray-900">Session 2 (14:30-15:15)</h5>
+                                        <p class="text-sm text-gray-700">マルチテナントSaaSでのRLS導入に際し、並列でDevinを動かし高い品質のコードをパワフルにプロダクションへ反映させた事例</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session3')">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-teal-700 bg-teal-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">15:15 - 16:00</span>
+                            </div>
+                            <div class="flex-1 ml-8">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-users text-teal-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Session 3</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-teal-600" id="arrow-session3"></i>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">TBD（45分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-accent rounded-2xl border border-teal-200/50" id="detail-session3">
+                                    <h4 class="font-bold text-gray-900 mb-2">セッション内容</h4>
+                                    <div class="p-3 bg-white/20 rounded-xl">
+                                        <h5 class="font-semibold text-gray-900">Session 3 (15:15-16:00)</h5>
+                                        <p class="text-sm text-gray-700">TBD</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('break1')">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-gray-700 bg-gray-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">16:00 - 16:30</span>
+                            </div>
+                            <div class="flex-1 ml-8">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-coffee text-gray-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Break</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-gray-600" id="arrow-break1"></i>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">休憩時間（30分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-warm rounded-2xl border border-gray-200/50" id="detail-break1">
+                                    <h4 class="font-bold text-gray-900 mb-2">休憩詳細</h4>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• コーヒー・お茶をご用意</li>
+                                        <li>• 参加者同士の自由な交流時間</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session4')">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-cyan-700 bg-cyan-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">16:30 - 17:15</span>
+                            </div>
+                            <div class="flex-1 ml-8">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-users text-cyan-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Session 4</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-cyan-600" id="arrow-session4"></i>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">Devinで変えるエンプラシステム開発の未来（45分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-cool rounded-2xl border border-cyan-200/50" id="detail-session4">
+                                    <h4 class="font-bold text-gray-900 mb-2">セッション内容</h4>
+                                    <div class="p-3 bg-white/20 rounded-xl">
+                                        <h5 class="font-semibold text-gray-900">Session 4 (16:30-17:15)</h5>
+                                        <p class="text-sm text-gray-700">Devinで変えるエンプラシステム開発の未来</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session5')">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">17:15 - 18:00</span>
+                            </div>
+                            <div class="flex-1 ml-8">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-users text-emerald-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Session 5</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-emerald-600" id="arrow-session5"></i>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">Devin DeepDive（45分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-accent rounded-2xl border border-emerald-200/50" id="detail-session5">
+                                    <h4 class="font-bold text-gray-900 mb-2">セッション内容</h4>
+                                    <div class="p-3 bg-white/20 rounded-xl">
+                                        <h5 class="font-semibold text-gray-900">Session 5 (17:15-18:00)</h5>
+                                        <p class="text-sm text-gray-700">Devin DeepDive</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('break2')">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-gray-700 bg-gray-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">18:00 - 18:15</span>
+                            </div>
+                            <div class="flex-1 ml-8">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-coffee text-gray-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Break</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-gray-600" id="arrow-break2"></i>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">休憩時間（15分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-warm rounded-2xl border border-gray-200/50" id="detail-break2">
+                                    <h4 class="font-bold text-gray-900 mb-2">休憩詳細</h4>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• コーヒー・お茶をご用意</li>
+                                        <li>• 参加者同士の自由な交流時間</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('session6')">
+                            <div class="w-36 text-right">
+                                <span class="text-sm font-bold text-violet-700 bg-violet-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">18:15 - 19:00</span>
+                            </div>
+                            <div class="flex-1 ml-8">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-users text-violet-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
+                                        <span class="font-bold text-gray-900 text-lg">Session 6</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-violet-600" id="arrow-session6"></i>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">運用して初めてわかったDevinのセキュリティ課題（45分）</p>
+                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-cool rounded-2xl border border-violet-200/50" id="detail-session6">
+                                    <h4 class="font-bold text-gray-900 mb-2">セッション内容</h4>
+                                    <div class="p-3 bg-white/20 rounded-xl">
+                                        <h5 class="font-semibold text-gray-900">Session 6 (18:15-19:00)</h5>
+                                        <p class="text-sm text-gray-700">運用して初めてわかったDevinのセキュリティ課題</p>
                                     </div>
                                 </div>
                             </div>
@@ -1700,7 +1818,7 @@
                         
                         <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('lt')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">16:40 - 17:20</span>
+                                <span class="text-sm font-bold text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">19:30 - 20:00</span>
                             </div>
                             <div class="flex-1 ml-8">
                                 <div class="flex items-center justify-between">
@@ -1710,21 +1828,34 @@
                                     </div>
                                     <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-indigo-600" id="arrow-lt"></i>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-2 ml-8">10分間のショートトーク（4本程度）</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">7-8分間のショートトーク（4本）</p>
                                 <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-accent rounded-2xl border border-indigo-200/50" id="detail-lt">
                                     <h4 class="font-bold text-gray-900 mb-2">Short Talk詳細</h4>
-                                    <ul class="text-sm text-gray-700 space-y-1">
-                                        <li>• 各発表10分（質疑応答含む）</li>
-                                        <li>• Devin体験談、失敗談、Tips共有</li>
-                                        <li>• 事前応募制（Call for Proposalsより応募）</li>
-                                    </ul>
+                                    <div class="grid md:grid-cols-2 gap-3">
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900 text-sm">Talk 1</h5>
+                                            <p class="text-xs text-gray-700">Devin導入後にわかったDevin導入前にやった方が良かったこと</p>
+                                        </div>
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900 text-sm">Talk 2</h5>
+                                            <p class="text-xs text-gray-700">育てたDevinは自律するのか？ - Terraformによる育成基盤と自律的仕様更新への挑戦 -</p>
+                                        </div>
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900 text-sm">Talk 3</h5>
+                                            <p class="text-xs text-gray-700">With Devin -AIの自律とメンバーの自立-</p>
+                                        </div>
+                                        <div class="p-3 bg-white/20 rounded-xl">
+                                            <h5 class="font-semibold text-gray-900 text-sm">Talk 4</h5>
+                                            <p class="text-xs text-gray-700">Manus fellow によるShort Talk</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="schedule-item flex items-center py-5 px-8 hover:bg-white/15 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('closing')">
                             <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-pink-700 bg-pink-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">17:20 - 18:00</span>
+                                <span class="text-sm font-bold text-pink-700 bg-pink-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">20:00 - 21:00</span>
                             </div>
                             <div class="flex-1 ml-8">
                                 <div class="flex items-center justify-between">
@@ -1734,38 +1865,15 @@
                                     </div>
                                     <i class="fas fa-chevron-down text-gray-400 transition-transform group-hover:text-pink-600" id="arrow-closing"></i>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-2 ml-8">イベントのまとめ、参加者へのお礼、今後の展望</p>
+                                <p class="text-sm text-gray-600 mt-2 ml-8">交流、抽選会</p>
                                 <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-warm rounded-2xl border border-pink-200/50" id="detail-closing">
                                     <h4 class="font-bold text-gray-900 mb-2">クロージング内容</h4>
                                     <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• 交流時間</li>
+                                        <li>• 抽選会</li>
                                         <li>• イベント全体の振り返りとハイライト</li>
                                         <li>• 参加者アンケートのお願い</li>
                                         <li>• 次回イベントの予告</li>
-                                        <li>• 懇親会の案内と注意事項</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="schedule-item flex items-center py-5 px-8 glass bg-gradient-to-r from-yellow-400/60 to-orange-500/60 text-gray-800 backdrop-blur-sm border-t-2 border-orange-200/50 hover:from-yellow-400/70 hover:to-orange-500/70 transition-all duration-300 cursor-pointer group" onclick="toggleScheduleDetail('party')">
-                            <div class="w-36 text-right">
-                                <span class="text-sm font-bold text-yellow-800 bg-yellow-100 px-3 py-1 rounded-full group-hover:scale-105 transition-transform">19:00 - 21:00</span>
-                            </div>
-                            <div class="flex-1 ml-8">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-glass-cheers text-orange-600 mr-4 text-lg group-hover:scale-110 transition-transform"></i>
-                                        <span class="font-bold text-gray-900 text-lg">懇親会</span>
-                                    </div>
-                                    <i class="fas fa-chevron-down text-gray-600 transition-transform group-hover:text-orange-700" id="arrow-party"></i>
-                                </div>
-                                <p class="text-sm text-gray-700 mt-2 ml-8">同じ会場で懇親会を開催！参加者同士の更なる交流とネットワーキングの場</p>
-                                <div class="schedule-detail hidden mt-4 ml-8 p-4 glass solarium-accent rounded-2xl border border-orange-200/50" id="detail-party">
-                                    <h4 class="font-bold text-gray-900 mb-2">懇親会詳細</h4>
-                                    <ul class="text-sm text-gray-700 space-y-1">
-                                        <li>• フリードリンク＆軽食をご用意</li>
-                                        <li>• 参加者同士の名刺交換・交流タイム</li>
-                                        <li>• Devin関連グッズの抽選会</li>
                                     </ul>
                                 </div>
                             </div>
@@ -2210,4 +2318,4 @@
         });
     </script>
 </body>
-</html>        
+</html>                                                
